@@ -1,0 +1,16 @@
+<div class="pagination clearfix mb1 mt4">
+  <div class="left">
+    <% if paginate && prev_page %>
+      <%= link_to "Newer", prev_page, { :class=>"pagination-item" } %>
+    <% else %>
+      <span class="pagination-item disabled">Newer</span>
+    <% end %>
+  </div>
+  <div class="right">
+    <% if paginate && next_page %>
+      <%= link_to 'Older', next_page, { :class=>"pagination-item" } %>
+    <% else %>
+      <span class="pagination-item disabled">Older</span>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<% wrap_layout :layout do %>
+<div class="post">
+  <%# layout and page have class post, which doesnt exist, there's no p-responsive either %>
+  <%# there is a .posts .post  but that's not this %>
+  <header class="post-header">
+    <%# there is no post-header class %>
+    <h1 class="h2"><%= current_page.data.title %></h1>
+
+  </header>
+  <article class="post-content">
+    <%# there is no post-content class %>
+    <%= yield %>
+  </article>
+</div>
+<%end %>

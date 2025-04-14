@@ -1,0 +1,19 @@
+  <!-- head include -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1'>
+    <% the_title = "Blog Title" %>
+    <% the_title = current_page.data.title unless current_page.data.title.nil? %>
+    <title><%= the_title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
+    <%= stylesheet_link_tag 'fonts_pixyll' %>
+    <%= stylesheet_link_tag 'fonts_deja_vu_sans_mono' %>
+    <%= stylesheet_link_tag 'fonts_webfonts' %>
+    <%= stylesheet_link_tag 'pixyll' %>
+    <!-- sometimes CSS -->
+    <%# check not nil and not empty string (stylesheet: or stylesheet: "") %>
+    <% stylesheet = current_page.data.stylesheet %>
+    <%= stylesheet_link_tag (!stylesheet.nil? && !stylesheet.empty? ? stylesheet : {}) %>
+  </head>
+  <!-- end head include -->

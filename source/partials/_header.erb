@@ -1,0 +1,20 @@
+      <!-- header include -->
+      <header class="site-header px2 px-responsive">
+        <div class="mt2 wrap">
+          <div class="measure">
+            <% link_to "/articles.html", :class=>"site-title" do %><%= "#{data.global.site_title}" %><% end %>
+            <nav class="site-nav">
+
+              <!-- navigation from inside header inculde -->
+              <%= link_to "Categories", '/all-categories.html' %>
+              <%= link_to "Tags", '/all-tags.html' %>
+              <%= link_to "About", '/about.html' %>
+              <%= link_to "Contact", '/contact.html' %>
+              <!-- end navigation from inside header inculde -->
+
+            </nav>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </header>
+      <!-- end header include -->

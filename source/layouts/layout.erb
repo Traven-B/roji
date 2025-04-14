@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <%= partial 'partials/head' %>
+  <body class="site">
+    <div class="site-wrap">
+      <%= partial 'partials/header' %>
+      <div class="post p2 p-responsive wrap" role="main">
+        <%# layout and page have class post, which doesnt exist, there's no p-responsive, no wrap either %>
+        <%# there is a .posts .post  but that's not this %>
+        <div class="measure">
+          <%= yield %>
+        </div>
+      </div>
+    </div> <!-- end .site-wrap -->
+
+    <% the_art_class = "default" %>
+    <% the_art_class = current_page.data.footer_art unless current_page.data.footer_art.nil? %>
+    <div class="footer_art_<%= the_art_class %>">
+    </div>
+
+    <div class="footer_grass">
+    </div>
+
+<%= partial 'partials/footer' %>
+  </body>
+</html>

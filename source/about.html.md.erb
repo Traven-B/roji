@@ -1,0 +1,53 @@
+---
+layout: page
+permalink: /about/
+footer_art: art
+---
+<% site_title = data.global.site_title %>
+<% current_page.data.title = "About #{site_title}" %>
+
+The Middleman theme "[<%= site_title
+%>](https://gitlab.com/b1769/texttools){:t}" is a modification of the Jekyll
+theme Pixyll and is licensed alongside Pixyll under the
+[MIT](http://opensource.org/licenses/MIT){:t} license.
+
+[Pixyll](https://web.archive.org/web/20181226190553if_/http://pixyll.com/){:t}
+was crafted by [John Otander](http://johnotander.com){:t}
+([@4lpine](https://twitter.com/4lpine){:t}), checkout its [Github
+repository](https://github.com/johno/pixyll){:t}.
+
+The footer art is from a Copyright © 2005‒2012 [The GNOME Project
+website](http://web.archive.org/web/20120805193546if_/http://www.gnome.org/about/){:t}
+with a link to the Free to share and remix: [Creative Commons
+CC-BY](https://creativecommons.org/licenses/by/3.0/){:t} licencse. The
+[gnome-grass
+theme](https://github.com/vdepizzol/gnome-grass/blob/master/images/footer_arts/readme.txt){:t}
+is presently on github.
+
+Thanks to the following:
+
+<!-- 40em from _media-object.scss min-width statement -->
+<style>
+@media screen and (max-width: 40em) {
+.media-hide-when_max_sm {
+display: none;
+}
+}
+</style>
+
+<div class="sm-media">
+<div class="media-hide-when_max_sm mr3">
+<span markdown="span">
+![](about/foundation_back_balloons.png)
+</span>
+</div>
+<div class="media-body" markdown="block">
+* [Middleman](https://middlemanapp.com/basics/blogging/){:t}
+* [BASSCSS](http://basscss.com){:t}
+* [Jekyll](http://jekyllrb.com){:t}
+* [Refills](http://refills.bourbon.io/){:t}
+* [Type Scale](http://type-scale.com/){:t}
+</div>
+</div>
+
+{:t: target="_blank"}

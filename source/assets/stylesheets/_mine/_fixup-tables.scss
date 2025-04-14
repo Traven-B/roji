@@ -1,0 +1,6 @@
+// this in addition to ../_sass/_tables.scss
+// fixes breaks in horizontal border line between cells
+// collapses bottom thick and tr border line to one thick line
+table {
+  border-collapse: collapse;
+}

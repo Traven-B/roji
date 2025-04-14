@@ -1,0 +1,26 @@
+---
+pageable: true
+---
+<% current_page.data.title= "#{data.global.site_title} index" %>
+<div class="home">
+  <div class="posts">
+    <% page_articles.each do |article| %>
+      <div class="post py3">
+        <%# within .posts there is a .post %>
+        <p class="post-meta"> <%=article.date.strftime('%b %e, %Y')%> </p>
+
+        <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
+
+
+        <% link_to  article, :class=>"post-link" do %><%= "<h3 class=\"h1 post-title\">#{article.title}</h3>" %><% end %>
+
+
+        <div class="post-summary">
+        <%= article.summary() %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<%= partial 'partials/pagination', :locals =>{paginate: paginate, prev_page: prev_page, next_page: next_page} %>
+</div>

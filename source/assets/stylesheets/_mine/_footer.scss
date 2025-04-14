@@ -1,0 +1,191 @@
+.site {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-wrap {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+footer {
+  // background-color: $footer-bg-color;
+  background-color: #d3d7cf;
+  // border-top: $footer-border-top;
+  color: $footer-color;
+  // color: #7a7a7a;
+  font-size: $footer-font-size;
+  font-weight: $footer-font-weight;
+  padding: $footer-padding;
+  text-align: center;
+}
+
+footer a {
+  color: #7a7a7a;
+  background-image: none;
+  text-shadow: none;
+  text-decoration: underline;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:active {
+  color: #2a6496;
+  background-image: none;
+  text-shadow: none;
+  text-decoration: underline;
+}
+
+.footer_art_404 {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/404.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: right bottom;
+}
+
+.footer_art_applications {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/applications.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+.footer_art_art {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/art.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+.footer_art_art-2 {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/art-2.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  // background-position: left bottom;
+  background-position: 24px bottom;
+}
+
+.footer_art_balloons {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/balloons.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: right bottom;
+}
+
+.footer_art_birdnflags {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/birdnflags.png);
+  background-repeat: no-repeat;
+  height: 200px;
+  // it's not only 20 taller, h 200 but 35 wider
+  // background-position: 35px bottom;
+  // background-position: left bottom;
+  background-position: 18px bottom;
+}
+
+.footer_art_community {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/community.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  // background-position: left bottom;
+  background-position: 24px bottom;
+}
+
+.footer_art_default {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/default.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+.footer_art_friends {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/friends.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  // background-position: right bottom;
+  // hearts left girl right
+  background-position: left bottom;
+}
+
+.footer_art_i18n {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/i18n.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+.footer_art_library {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/library.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+.footer_art_search_no-results {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/search_no-results.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+.footer_art_search {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/search.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+.footer_art_support {
+  margin-bottom: 0;
+  background-image: url(img/footer_arts/support.png);
+  background-repeat: no-repeat;
+  height: 180px;
+  background-position: left bottom;
+}
+
+@media screen and (min-width: $viewport-large) {
+  .footer_art_404,
+  .footer_art_applications,
+  .footer_art_art,
+  .footer_art_art-2,
+  .footer_art_balloons,
+  .footer_art_birdnflags,
+  .footer_art_community,
+  .footer_art_default,
+  .footer_art_friends,
+  .footer_art_i18n,
+  .footer_art_library,
+  .footer_art_search_no-results,
+  .footer_art_search,
+  .footer_art_support {
+    background-position: center bottom;
+  }
+}
+
+.footer_grass {
+  background: url(img/grass.png) top center repeat-x;
+  height: 39px;
+  margin-top: -33px;
+}

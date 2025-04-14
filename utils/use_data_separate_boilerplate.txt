@@ -1,0 +1,73 @@
+---
+- :name: Maggie Cheung
+  :img: https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/08/In-the-Mood-for-Love-1.jpg
+  :movies:
+  - As Tears Go By (1988)
+  - Ashes of Time (1994)
+  - In the Mood for Love (2000)
+
+- :name: Gong Li
+  :img: https://asiasociety.org/files/uploads/296images/121017_red_sorghum_blog.jpg
+  :movies:
+  - Red Sorghum (1987)
+  - Raise the Red Lantern (1991)
+  - Farewell My Concubine (1993)
+  - 2046 (2004)
+  - Memoirs of a Geisha (2005)
+
+- :name: Faye Wong
+  :img: https://spaceecho.chromewaves.net/wp-content/uploads/2021/05/chunkingexpress-868x488.jpeg
+  :movies:
+  - Chungking Express (1994)
+  - 2046 (2004)
+
+############
+## make sure you RENAME THE POST FILE BY APPENDING .erb to the file name if you
+## haven't alread.
+############
+
+<% elements = data.posts.xxxDIRNAME_HERExxx.a %>
+
+<%# The initial map/join incorporates the name values from the data into the page summary. %>
+
+<% current_page.data.summary = elements.map { |e| "### #{e[:name]}\n\n" }.join %>
+
+<% elements.each do |e| %>
+
+## <%= e[:name] %>
+_![](<%= e[:img] %>){: style="max-height: 488px;"}_
+
+    <% e[:movies].each do |m| %>
+*     [<%= m -%> <i class="fa fa-external-link-square-alt"></i>](https://www.google.com/search?q=%22<%= m -%>%22){:t}
+    <% end %>
+
+  <% unless e == elements.last %>
+---
+  <% end %>
+<% end %>
+
+{:t: target="_blank"} <%# comment to suppress underscore highlighting with _blank %>
+
+<div markdown="1">
+Kyudo must also be beautiful. But since the concept of beauty varies between
+cultures it is difficult to define. All will agree, however, that it is a
+pleasant quality that enhances life and stimulates the spirit.
+
+The kyudo ceremony, or more precisely the etiquette that lies at the heart of
+it, is also considered beautiful. Etiquette, which is basically just common
+courtesy and respect shown to others, gives the ceremony purpose.
+</div>
+{: .mt3 .mb3}
+
+<% elements.each do |e| %>
+  <h2><%= e[:name] %></h2>
+  <em><img src="<%= e[:img] %>" alt="" style="max-height: 488px;"></em>
+  <ul>
+  <% e[:movies].each do |m| %>
+    <li><a href="https://www.google.com/search?q=%22<%= m -%>%22" target="_blank"><%= m -%> <i class="fa fa-external-link-square-alt"></i></a></li>
+  <% end %>
+  </ul>
+  <% unless e == elements.last %>
+  <hr>
+  <% end %>
+<% end %>

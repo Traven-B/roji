@@ -1,0 +1,34 @@
+<% wrap_layout :layout do %>
+  <!-- https://forum.middlemanapp.com/t/helpful-for-others-categories-with-counts/2010 -->
+
+<div class="post-header mb2">
+  <%# there is no post-header class %>
+  <h1><%= current_article.title %></h1>
+  <span class="post-meta"><%= current_article.date.strftime('%b %d, %Y') %></span><br>
+
+<p class="small">
+<% tagsize = current_article_categories_helper.size %>
+<% if tagsize != 0 then %> <span class="category-tags-icons fa fa-folder-open"></span>&nbsp;
+<% current_article_categories_helper.each_with_index do |tag,index| %>
+<%= link_to tag, category_path(tag), :"data-toggle"=>"tooltip", :title=>"Posts with category #{tag}", :rel=>"tag" %><%= "&comma;&nbsp;" unless tagsize == index+1 %>
+<% end %>
+<br>
+<% end %>
+<% tagsize = current_article.tags.size %>
+<% if tagsize != 0 then %> <span class="category-tags-icons fa fa-tags"></span>&nbsp;
+  <% current_article.tags.each_with_index do |tag,index| %>
+<%= link_to tag, tag_path(tag), :"data-toggle"=>"tooltip", :title=>"Posts tagged with #{tag}", :rel=>"tag" %><%= "&comma;&nbsp;" unless tagsize == index+1 %>
+  <% end %>
+<% end %>
+</p>
+</div>
+<article class="post-content">
+  <%# there is no post-content class %>
+
+  <!-- yield to actual post content here -->
+      <%= yield %>
+  <!-- end yield to actual post content here -->
+
+</article>
+<!-- end of wrap_layout :layout do -->
+<%end %>

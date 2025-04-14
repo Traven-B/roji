@@ -1,0 +1,39 @@
+.site-nav {
+  padding-top: 0;
+  margin-top: $nav-padding;
+}
+
+// the 13 13 17 17 matches commented out pseudo elements below
+// matches style sheet from previous project
+// his _sass scss has 13 13 18 17
+// overriding it here, without the fix some underlines when not hovering
+// are thicker than others.
+a {
+  color: $link-color;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0) 13%,
+      rgba($link-color, 0.8) 13%,
+      rgba($link-color, 0.8) 17%, // was 18
+      rgba(0, 0, 0, 0) 17%
+    );
+  text-shadow: white 1px 0 0, white -1px 0 0;
+}
+
+// a:hover,
+// a:focus,
+// a:active {
+//   border: 0;
+//   color: $link-hover-color;
+//   text-decoration: none;
+//   background-image:
+//     linear-gradient(
+//       to top,
+//       rgba(0, 0, 0, 0) 13%,
+//       rgba($link-hover-color, 0.8) 13%,
+//       rgba($link-hover-color, 0.8) 17%,
+//       rgba(0, 0, 0, 0) 17%
+//     );
+//   text-shadow: white 1px 0 0, white -1px 0 0;
+// }
