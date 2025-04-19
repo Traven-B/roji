@@ -1,0 +1,29 @@
+/* from https://github.com/maxwell-k/dejavu-sans-mono-web-font */
+@font-face {
+  font-family: "DejaVu Sans Mono_";
+  font-style: normal;
+  font-weight: normal;
+  src: local(DejaVu Sans Mono), local(DejaVuSansMono),
+    url(../fonts/pixyll-fonts/DejaVuSansMono/DejaVuSansMono-0219b57f.woff) format("woff");
+}
+@font-face {
+  font-family: "DejaVu Sans Mono_";
+  font-style: normal;
+  font-weight: bold;
+  src: local(DejaVu Sans Mono Bold), local(DejaVuSansMono-Bold),
+    url(../fonts/pixyll-fonts/DejaVuSansMono/DejaVuSansMono-Bold-f1385928.woff) format("woff");
+}
+@font-face {
+  font-family: "DejaVu Sans Mono_";
+  font-style: oblique;
+  font-weight: normal;
+  src: local(DejaVu Sans Mono Oblique), local(DejaVuSansMono-Oblique),
+    url(../fonts/pixyll-fonts/DejaVuSansMono/DejaVuSansMono-Oblique-bc82ff5c.woff) format("woff");
+}
+@font-face {
+  font-family: "DejaVu Sans Mono_";
+  font-style: oblique;
+  font-weight: bold;
+  src: local(DejaVu Sans Mono Bold Oblique), local(DejaVuSansMono-BoldOblique),
+    url(../fonts/pixyll-fonts/DejaVuSansMono/DejaVuSansMono-BoldOblique-fe336d48.woff) format("woff");
+}

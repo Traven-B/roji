@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2024-05-09T16:33:00-05:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>The vanguard of web aesthetics</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2024-05-09-the-vanguard-of-web-aesthetics.html"/>
+    <id>http://blog.url.com/blog/2024-05-09-the-vanguard-of-web-aesthetics.html</id>
+    <published>2024-05-09T16:33:00-05:00</published>
+    <updated>2025-04-18T22:24:34-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;!-- https://github.com/basscss/addons/blob/master/modules/media-object/README.md --&gt;
+&lt;!-- can use just css to alternate positioning, how many browsers allow --&gt;
+&lt;!-- https://stackoverflow.com/questions/11781531/alternating-left-and-right-positioning-with-css --&gt;
+&lt;!-- can we construct links to fragments on this page with markdown []() notation --&gt;
+&lt;!-- css to show and hide stuff, 1st problem, need # signs for id's, also links to fragment anchor cause page to move up --&gt;
+&lt;!-- https://stackoverflow.com/questions/40312901/showing-and-hiding-something-with-pure-css-with-show-and-hide-button --&gt;
+&lt;!-- display, summary using kramdown with code blocks he uses backticks though? --&gt;
+&lt;!-- https://www.endtoend.ai/tutorial/collapsible-code-blocks/#the-safe-arduous-way --&gt;
+&lt;!-- getalong turning off markdown processing and doing figure stuff, used this before I believe --&gt;
+&lt;!-- https://github.com/gettalong/kramdown/issues/48 --&gt;
+&lt;!-- moz dev page on details/summary --&gt;
+&lt;!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details --&gt;
+
+&lt;!-- 
+I can and do say
+
+    &lt;%= image_tag "posts/the-vanguard-of-web-aesthetics-2024-05-09/#{e[:img]}" %&gt;
+
+where the-vanguard-of-web-aesthetics-2024-05-09 is a directory name, a subdirectory of images/posts
+
+But I can not say
+
+    &lt;% elements = data.posts.the-vanguard-of-web-aesthetics-2024-05-09.red_zen %&gt;
+
+where  the-vanguard-of-web-aesthetics-2024-05-09 would be a directory name, a subdirectory of data/posts
+
+but instead have to say
+
+    &lt;% elements = data.posts.the_vanguard_of_web_aesthetics_2024_05_09.red_zen %&gt;
+
+where the_vanguard_of_web_aesthetics_2024_05_09 is a directory name with underscores, a subdirectory of data/posts
+ --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Responsive Media Objects
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="2024-05-09-the-vanguard-of-web-aesthetics.html#rmo_code"&gt;code&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="2024-05-09-the-vanguard-of-web-aesthetics.html#rmo_render"&gt;render&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Alternate Floating Left and Right
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="2024-05-09-the-vanguard-of-web-aesthetics.html#flr_code"&gt;code&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="2024-05-09-the-vanguard-of-web-aesthetics.html#flr_render"&gt;render&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;!-- best when no newline between div,#rmo_ id details --&gt;&lt;/p&gt;
+&lt;div&gt;
+  &lt;details class="description" id="rmo_code"&gt;
+    &lt;summary class="hw h2" data-open="Hide Responsive Media Objects code" data-close="View Responsive Media Objects code"&gt;&lt;/summary&gt;
+
+    &lt;h3&gt;scss&lt;/h3&gt;
+
+    &lt;p&gt;_media-object.scss
+in scss dir, not _sass dir, but included in pixyll.css.scss&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight scss"&gt;&lt;code&gt;&lt;span class="cm"&gt;/* Basscss Media Object */&lt;/span&gt;
+
+&lt;span class="nc"&gt;.media&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+&lt;span class="nc"&gt;.sm-media&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+&lt;span class="nc"&gt;.md-media&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+&lt;span class="nc"&gt;.lg-media&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;margin-left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;$media-object-space&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;margin-right&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;$media-object-space&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nc"&gt;.media&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nc"&gt;.media-center&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;align-items&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;center&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nc"&gt;.media-bottom&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;align-items&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex-end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nc"&gt;.media-img&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;
+&lt;span class="nc"&gt;.media-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;padding-left&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;$media-object-space&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nl"&gt;padding-right&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;$media-object-space&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="nc"&gt;.media-body&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;flex&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nb"&gt;auto&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;@media&lt;/span&gt; &lt;span class="n"&gt;screen&lt;/span&gt; &lt;span class="nf"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;$viewport-small&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nc"&gt;.sm-media&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nl"&gt;display&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;flex&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;in directory &lt;code&gt;assets/stylesheets/additional_styles/posts/&lt;/code&gt;
+we have &lt;code&gt;the-vanguard-of-web-aesthetics-2024-05-09.css.scss&lt;/code&gt;
+It is associated with this post because it is named in the
+front matter as&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;---
+title: The vanguard of web aesthetics
+stylesheet: additional_styles/posts/the-vanguard-of-web-aesthetics-2024-05-09
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Its contents tweaks the vertical margins of the object:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight scss"&gt;&lt;code&gt;&lt;span class="nc"&gt;.extra&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nl"&gt;margin-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="mi"&gt;.5rem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;@media&lt;/span&gt; &lt;span class="n"&gt;screen&lt;/span&gt; &lt;span class="nf"&gt;and&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;min-width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;$viewport-small&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nc"&gt;.extra&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nl"&gt;margin-top&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="mi"&gt;.5rem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nl"&gt;margin-bottom&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="mi"&gt;.5rem&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;h3&gt;HTML produced by erb&lt;/h3&gt;
+
+    &lt;p&gt;Embedded ruby reads the red_zen.yml data file for image names and accompanying text.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight erb"&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;posts&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;the_vanguard_of_web_aesthetics_2024_05_09&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;red_zen&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;each&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="cp"&gt;-%&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"mt3 mb3 sm-media media-center"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="n"&gt;image_tag&lt;/span&gt; &lt;span class="s2"&gt;"posts/the-vanguard-of-web-aesthetics-2024-05-09/&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:img&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                 &lt;span class="ss"&gt;:style&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;"max-width: 12rem;"&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"media-body"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"h2 hw mb0"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:name&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"extra"&lt;/span&gt; &lt;span class="na"&gt;markdown=&lt;/span&gt;&lt;span class="s"&gt;"1"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:text&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="cp"&gt;-%&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;h3&gt;The YAML data&lt;/h3&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;---
+- :img: red.jpg
+  :name: Nari
+  :text: &amp;gt;-
+     The mind can go in a thousand directions, but on this beautiful path,
+     I walk in peace. With each step, the wind nurtures my seeds of belonging.
+- :img: red-2.jpg
+  :name: Ae-Cha
+  :text: &amp;gt;-
+     In the landscape of spring, there is neither better nor worse.
+     The flowering branches grow naturally, some long, some short.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Consider using the &lt;code&gt;do_images.rb&lt;/code&gt; utility to automate the creation of an image
+directory associated with a particular post, fetch and name images, and write
+to stdout a line of Markdown for each image, using a template you provide. Run
+&lt;code&gt;utils/do_images.rb --help&lt;/code&gt; for usage.&lt;/p&gt;
+
+    &lt;div class="pagination clearfix"&gt;&lt;div class="right"&gt;&lt;a href="#rmo_code"&gt;Code Summary&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+
+  &lt;/details&gt;
+  &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id="rmo_render"&gt;Responsive Media Objects (render)&lt;/h2&gt;
+
+&lt;div class="mt3 mb3 sm-media media-center"&gt;
+  &lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-a0c65ad0.jpg" style="max-width: 12rem;" alt="" /&gt;
+  &lt;div class="media-body"&gt;
+  &lt;!--       "h2 heading-font-family bold mb0" --&gt;
+    &lt;p class="h2 hw mb0"&gt;
+    Nari
+    &lt;/p&gt;
+    &lt;p class="extra"&gt;
+    The mind can go in a thousand directions, but on this beautiful path, I walk in peace. With each step, the wind nurtures my seeds of belonging.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="mt3 mb3 sm-media media-center"&gt;
+  &lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-2-9b65a3fb.jpg" style="max-width: 12rem;" alt="" /&gt;
+  &lt;div class="media-body"&gt;
+  &lt;!--       "h2 heading-font-family bold mb0" --&gt;
+    &lt;p class="h2 hw mb0"&gt;
+    Ae-Cha
+    &lt;/p&gt;
+    &lt;p class="extra"&gt;
+    In the landscape of spring, there is neither better nor worse. The flowering branches grow naturally, some long, some short.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="mt3 mb3 sm-media media-center"&gt;
+  &lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-3-2aab353c.jpg" style="max-width: 12rem;" alt="" /&gt;
+  &lt;div class="media-body"&gt;
+  &lt;!--       "h2 heading-font-family bold mb0" --&gt;
+    &lt;p class="h2 hw mb0"&gt;
+    Madoka
+    &lt;/p&gt;
+    &lt;p class="extra"&gt;
+    To follow the path, look to the master, follow the master, walk with the master, see through the master, become the master.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="mt3 mb3 sm-media media-center"&gt;
+  &lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-4-87f69139.jpg" style="max-width: 12rem;" alt="" /&gt;
+  &lt;div class="media-body"&gt;
+  &lt;!--       "h2 heading-font-family bold mb0" --&gt;
+    &lt;p class="h2 hw mb0"&gt;
+    Hana
+    &lt;/p&gt;
+    &lt;p class="extra"&gt;
+    The more you know yourself, the more you become a being true to that self. And the more you become true to that true self, the more you embody it.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="mt3 mb3 sm-media media-center"&gt;
+  &lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-5-73054e27.jpg" style="max-width: 12rem;" alt="" /&gt;
+  &lt;div class="media-body"&gt;
+  &lt;!--       "h2 heading-font-family bold mb0" --&gt;
+    &lt;p class="h2 hw mb0"&gt;
+    Eun
+    &lt;/p&gt;
+    &lt;p class="extra"&gt;
+    The perfect human being is one who obeys the laws of nature, going with the flow, yet remaining unattached from the results.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="mt3 mb3 sm-media media-center"&gt;
+  &lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-6-267e83cb.jpg" style="max-width: 12rem;" alt="" /&gt;
+  &lt;div class="media-body"&gt;
+  &lt;!--       "h2 heading-font-family bold mb0" --&gt;
+    &lt;p class="h2 hw mb0"&gt;
+    Rikako
+    &lt;/p&gt;
+    &lt;p class="extra"&gt;
+    The journey of a thousand miles begins with a single step. Once that first step is taken, the path will reveal itself.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="pagination clearfix"&gt;&lt;div class="right"&gt;&lt;a href="#"&gt;Top&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;!-- best when no newline between div,#flr_ id details --&gt;&lt;/p&gt;
+&lt;div&gt;
+  &lt;details class="description" id="flr_code"&gt;
+    &lt;summary class="hw h2" data-open="Hide Alternate Floating Left and Right code" data-close="View Alternate Floating Left and Right code"&gt;&lt;/summary&gt;
+
+    &lt;h3&gt;using erb with above yaml data&lt;/h3&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight erb"&gt;&lt;code&gt;&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;posts&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;the_vanguard_of_web_aesthetics_2024_05_09&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;red_zen&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;markdown=&lt;/span&gt;&lt;span class="s"&gt;"1"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;side&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:right&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;class_attrs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;class_attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:right&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"right ml2 mb1"&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+   &lt;span class="n"&gt;class_attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:left&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"left mr2 mb1"&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;each&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="cp"&gt;-%&amp;gt;&lt;/span&gt;
+  &lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="n"&gt;image_tag&lt;/span&gt; &lt;span class="s2"&gt;"posts/the-vanguard-of-web-aesthetics-2024-05-09/&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;:img&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;:style&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;"max-width: 12rem;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="ss"&gt;:class&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;class_attrs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;side&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;
+  &lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;side&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;side&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="ss"&gt;:right&lt;/span&gt; &lt;span class="p"&gt;?&lt;/span&gt; &lt;span class="ss"&gt;:left&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;:right&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;-%&amp;gt;&lt;/span&gt;
+ Of the hand and the wrist bone. Continue wrapping the large strap around
+the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
+of the hand, tuck the end piece under the top layer of the large strap and pull
+it toward you. Slightly tighten the strap layers and loop the end piece over
+and through the top strap once again. To finish, tighten the strap layers and
+straighten the loop.
+
+ Wing feathers (teba). In the case of other birds like turkeys or swans,
+only the wing feathers are used. These feathers are relatively inexpensive.
+However, they do not hold up under repeated use as well as eagle or hawk
+feathers.
+Feathers from both the right side and the left side are used to make arrows.
+Arrows that have feathers that curve to the left are called baya, or first
+arrows, while those that curve to the right are called otoya, or second arrows.
+
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="cp"&gt;-%&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class="pagination clearfix"&gt;&lt;div class="right"&gt;&lt;a href="#flr_code"&gt;Code Summary&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+
+  &lt;/details&gt;
+  &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id="flr_render"&gt;Alternate Floating Left and Right (render)&lt;/h2&gt;
+
+&lt;div&gt;
+  &lt;p&gt;&lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-a0c65ad0.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" /&gt;
+ Of the hand and the wrist bone. Continue wrapping the large strap around
+the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
+of the hand, tuck the end piece under the top layer of the large strap and pull
+it toward you. Slightly tighten the strap layers and loop the end piece over
+and through the top strap once again. To finish, tighten the strap layers and
+straighten the loop.&lt;/p&gt;
+
+  &lt;p&gt;Wing feathers (teba). In the case of other birds like turkeys or swans,
+only the wing feathers are used. These feathers are relatively inexpensive.
+However, they do not hold up under repeated use as well as eagle or hawk
+feathers.
+Feathers from both the right side and the left side are used to make arrows.
+Arrows that have feathers that curve to the left are called baya, or first
+arrows, while those that curve to the right are called otoya, or second arrows.&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-2-9b65a3fb.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" /&gt;
+ Of the hand and the wrist bone. Continue wrapping the large strap around
+the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
+of the hand, tuck the end piece under the top layer of the large strap and pull
+it toward you. Slightly tighten the strap layers and loop the end piece over
+and through the top strap once again. To finish, tighten the strap layers and
+straighten the loop.&lt;/p&gt;
+
+  &lt;p&gt;Wing feathers (teba). In the case of other birds like turkeys or swans,
+only the wing feathers are used. These feathers are relatively inexpensive.
+However, they do not hold up under repeated use as well as eagle or hawk
+feathers.
+Feathers from both the right side and the left side are used to make arrows.
+Arrows that have feathers that curve to the left are called baya, or first
+arrows, while those that curve to the right are called otoya, or second arrows.&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-3-2aab353c.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" /&gt;
+ Of the hand and the wrist bone. Continue wrapping the large strap around
+the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
+of the hand, tuck the end piece under the top layer of the large strap and pull
+it toward you. Slightly tighten the strap layers and loop the end piece over
+and through the top strap once again. To finish, tighten the strap layers and
+straighten the loop.&lt;/p&gt;
+
+  &lt;p&gt;Wing feathers (teba). In the case of other birds like turkeys or swans,
+only the wing feathers are used. These feathers are relatively inexpensive.
+However, they do not hold up under repeated use as well as eagle or hawk
+feathers.
+Feathers from both the right side and the left side are used to make arrows.
+Arrows that have feathers that curve to the left are called baya, or first
+arrows, while those that curve to the right are called otoya, or second arrows.&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-4-87f69139.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" /&gt;
+ Of the hand and the wrist bone. Continue wrapping the large strap around
+the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
+of the hand, tuck the end piece under the top layer of the large strap and pull
+it toward you. Slightly tighten the strap layers and loop the end piece over
+and through the top strap once again. To finish, tighten the strap layers and
+straighten the loop.&lt;/p&gt;
+
+  &lt;p&gt;Wing feathers (teba). In the case of other birds like turkeys or swans,
+only the wing feathers are used. These feathers are relatively inexpensive.
+However, they do not hold up under repeated use as well as eagle or hawk
+feathers.
+Feathers from both the right side and the left side are used to make arrows.
+Arrows that have feathers that curve to the left are called baya, or first
+arrows, while those that curve to the right are called otoya, or second arrows.&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-5-73054e27.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" /&gt;
+ Of the hand and the wrist bone. Continue wrapping the large strap around
+the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
+of the hand, tuck the end piece under the top layer of the large strap and pull
+it toward you. Slightly tighten the strap layers and loop the end piece over
+and through the top strap once again. To finish, tighten the strap layers and
+straighten the loop.&lt;/p&gt;
+
+  &lt;p&gt;Wing feathers (teba). In the case of other birds like turkeys or swans,
+only the wing feathers are used. These feathers are relatively inexpensive.
+However, they do not hold up under repeated use as well as eagle or hawk
+feathers.
+Feathers from both the right side and the left side are used to make arrows.
+Arrows that have feathers that curve to the left are called baya, or first
+arrows, while those that curve to the right are called otoya, or second arrows.&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-6-267e83cb.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" /&gt;
+ Of the hand and the wrist bone. Continue wrapping the large strap around
+the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
+of the hand, tuck the end piece under the top layer of the large strap and pull
+it toward you. Slightly tighten the strap layers and loop the end piece over
+and through the top strap once again. To finish, tighten the strap layers and
+straighten the loop.&lt;/p&gt;
+
+  &lt;p&gt;Wing feathers (teba). In the case of other birds like turkeys or swans,
+only the wing feathers are used. These feathers are relatively inexpensive.
+However, they do not hold up under repeated use as well as eagle or hawk
+feathers.
+Feathers from both the right side and the left side are used to make arrows.
+Arrows that have feathers that curve to the left are called baya, or first
+arrows, while those that curve to the right are called otoya, or second arrows.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;div class="pagination clearfix"&gt;&lt;div class="right"&gt;&lt;a href="#"&gt;Top&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Pixyll in Action</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2019-03-12-pixyll-in-action.html"/>
+    <id>http://blog.url.com/blog/2019-03-12-pixyll-in-action.html</id>
+    <published>2019-03-12T18:39:00-05:00</published>
+    <updated>2022-01-25T03:35:03-06:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">
+&lt;!--
+:syntax_highlighter: :coderay
+:syntax_highlighter_opts:
+  block:
+    css: class
+  default_lang: ruby
+  wrap: span
+line_numbers: null
+--&gt;
+
+&lt;p&gt;There is a significant amount of subtle, yet precisely calibrated,
+styling to ensure that your content is emphasized while still looking
+aesthetically pleasing.&lt;/p&gt;
+
+&lt;p&gt;All links are easy to &lt;a href="#"&gt;locate and discern&lt;/a&gt;, yet don’t detract from
+the &lt;a href="#"&gt;harmony of a paragraph&lt;/a&gt;. The &lt;em&gt;same&lt;/em&gt; goes for italics and
+&lt;strong&gt;bold&lt;/strong&gt; elements. Even the the strikeout works if &lt;del&gt;for some reason
+you need to update your post&lt;/del&gt;. For consistency’s sake, &lt;ins&gt;The
+same goes for insertions&lt;/ins&gt;, of course.&lt;/p&gt;
+
+&lt;h3 id="code-with-syntax-highlighting"&gt;Code, with syntax highlighting&lt;/h3&gt;
+
+&lt;p&gt;Here’s an example of some ruby code with line anchors.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight ruby"&gt;&lt;code&gt;&lt;span class="c1"&gt;# The most awesome of classes&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Awesome&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="no"&gt;ActiveRecord&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Base&lt;/span&gt;
+  &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="no"&gt;EvenMoreAwesome&lt;/span&gt;
+
+  &lt;span class="n"&gt;validates_presence_of&lt;/span&gt; &lt;span class="ss"&gt;:something&lt;/span&gt;
+  &lt;span class="n"&gt;validates&lt;/span&gt; &lt;span class="ss"&gt;:email&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;email_format: &lt;/span&gt;&lt;span class="kp"&gt;true&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;initialize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;nil&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;email&lt;/span&gt;
+    &lt;span class="nb"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;name&lt;/span&gt;
+    &lt;span class="nb"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;favorite_number&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;
+    &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s1"&gt;'created awesomeness'&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;email_format&lt;/span&gt;
+    &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=~&lt;/span&gt; &lt;span class="sr"&gt;/\S+@\S+\.\S+/&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here’s some CSS:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight css"&gt;&lt;code&gt;&lt;span class="nc"&gt;.foobar&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="c"&gt;/* Named colors rule */&lt;/span&gt;
+  &lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="no"&gt;tomato&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here’s some JavaScript:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;isPresent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;is-present&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;doStuff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;things&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;isPresent&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;things&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;doOtherStuff&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;things&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here’s some HTML:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight html"&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"m0 p0 bg-blue white"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;h3&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;"h1"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Hello, world!&lt;span class="nt"&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id="headings"&gt;Headings!&lt;/h1&gt;
+
+&lt;p&gt;They’re responsive, and well-proportioned (in &lt;code class=""&gt;padding&lt;/code&gt;,
+&lt;code class=""&gt;line-height&lt;/code&gt;, &lt;code class=""&gt;margin&lt;/code&gt;, and &lt;code class=""&gt;font-size&lt;/code&gt;). They also heavily rely on the awesome utility, &lt;a href="http://www.basscss.com/"&gt;BASSCSS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h5 id="they-draw-the-perfect-amount-of-attention"&gt;They draw the perfect amount of attention&lt;/h5&gt;
+
+&lt;p&gt;This allows your content to have the proper informational and contextual
+hierarchy. Yay.&lt;/p&gt;
+
+&lt;h3 id="there-are-lists-too"&gt;There are lists, too&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Oranges&lt;/li&gt;
+  &lt;li&gt;Potatoes&lt;/li&gt;
+  &lt;li&gt;Milk&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Mow the lawn&lt;/li&gt;
+  &lt;li&gt;Feed the dog&lt;/li&gt;
+  &lt;li&gt;Dance&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="images-look-great-too"&gt;Images look great, too&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="https://cloud.githubusercontent.com/assets/1424573/3378137/abac6d7c-fbe6-11e3-8e09-55745b6a8176.png" alt="desk" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;img src="https://cloud.githubusercontent.com/assets/1424573/3378137/abac6d7c-fbe6-11e3-8e09-55745b6a8176.png" alt="desk" /&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id="there-are-also-pretty-colors"&gt;There are also pretty colors&lt;/h3&gt;
+
+&lt;p&gt;Also the result of &lt;a href="http://www.basscss.com/"&gt;BASSCSS&lt;/a&gt;, you can &lt;span class="bg-dark-gray white"&gt;highlight&lt;/span&gt; certain components of a &lt;span class="red"&gt;post&lt;/span&gt; &lt;span class="mid-gray"&gt;with&lt;/span&gt; &lt;span class="green"&gt;CSS&lt;/span&gt; &lt;span class="orange"&gt;classes&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don’t recommend using blue, though. It looks like a &lt;span class="blue"&gt;link&lt;/span&gt;.&lt;/p&gt;
+
+&lt;h3 id="footnotes"&gt;Footnotes!&lt;/h3&gt;
+
+&lt;p&gt;Markdown footnotes are supported, and they look great! Simply put e.g.
+&lt;code class=""&gt;[^1]&lt;/code&gt; where you want the footnote to appear,&lt;sup id="fnref:1" role="doc-noteref"&gt;&lt;a href="#fn:1" class="footnote" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;
+and then add the reference at
+the end of your markdown.&lt;/p&gt;
+
+&lt;h3 id="stylish-blockquotes-included"&gt;Stylish blockquotes included&lt;/h3&gt;
+
+&lt;p&gt;You can use the markdown quote syntax, &lt;code class=""&gt;&amp;gt;&lt;/code&gt; for simple
+quotes.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+quis porta mauris.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;However, you need to inject html if you’d like a citation footer. I will
+be working on a way to hopefully sidestep this inconvenience.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Perfection is achieved, not when there is nothing more to add, but
+when there is nothing left to take away.&lt;/p&gt;
+
+  &lt;footer&gt;
+&lt;cite title="Antoine de Saint-Exupéry"&gt;Antoine de Saint-Exupéry&lt;/cite&gt;
+&lt;/footer&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;Tables&lt;/h3&gt;
+
+&lt;p&gt;Tables represent tabular data and can be built using markdown syntax.  They are rendered responsively in Pixyll for a variety of screen widths.&lt;/p&gt;
+
+&lt;p&gt;Here's a simple example of a table:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Quantity&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th style="text-align: right"&gt;Price&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Orange&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;$0.99&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Pineapple&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;$2.99&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Banana&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;$0.39&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;&lt;strong&gt;$6.14&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+
+&lt;p&gt;A table must have a body of one or more rows, but can optionally also have a header or footer.&lt;/p&gt;
+
+&lt;p&gt;The cells in a column, including the header row cell, can either be aligned:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;left,&lt;/li&gt;
+  &lt;li&gt;right or&lt;/li&gt;
+  &lt;li&gt;center.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most inline text formatting is available in table cells, block-level formatting are not.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Default header&lt;/th&gt;
+      &lt;th style="text-align: left"&gt;Left header&lt;/th&gt;
+      &lt;th style="text-align: center"&gt;Center header&lt;/th&gt;
+      &lt;th style="text-align: right"&gt;Right header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Default&lt;/td&gt;
+      &lt;td style="text-align: left"&gt;Left&lt;/td&gt;
+      &lt;td style="text-align: center"&gt;Center&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;Right&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;/td&gt;
+      &lt;td style="text-align: left"&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style="text-align: center"&gt;&lt;strong&gt;&lt;em&gt;Bold italic&lt;/em&gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;&lt;code&gt;monospace&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href="#"&gt;link text&lt;/a&gt;&lt;/td&gt;
+      &lt;td style="text-align: left"&gt;&lt;code&gt;code&lt;/code&gt;&lt;/td&gt;
+      &lt;td style="text-align: center"&gt;~~Strikeout~~&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;&lt;ins&gt;Insertion&lt;ins&gt;&lt;/ins&gt;&lt;/ins&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;line&lt;br /&gt;break&lt;/td&gt;
+      &lt;td style="text-align: left"&gt;"Smart quotes"&lt;/td&gt;
+      &lt;td style="text-align: center"&gt;&lt;mark&gt;highlight&lt;/mark&gt;&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;&lt;span class="green"&gt;green&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Footnote&lt;sup id="fnref:2" role="doc-noteref"&gt;&lt;a href="#fn:2" class="footnote" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+      &lt;td style="text-align: left"&gt;&lt;sub&gt;subscript&lt;/sub&gt;&lt;/td&gt;
+      &lt;td style="text-align: center"&gt;&lt;sup&gt;superscript&lt;/sup&gt;&lt;/td&gt;
+      &lt;td style="text-align: right"&gt;&lt;span class="red"&gt;red&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Footer row&lt;/td&gt;
+      &lt;td style="text-align: left"&gt; &lt;/td&gt;
+      &lt;td style="text-align: center"&gt; &lt;/td&gt;
+      &lt;td style="text-align: right"&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+
+&lt;h3 id="theres-more-being-added-all-the-time"&gt;There’s more being added all the time&lt;/h3&gt;
+
+&lt;p&gt;Checkout the &lt;a href="https://github.com/johnotander/pixyll"&gt;Github repository&lt;/a&gt; to request, or add, features.&lt;/p&gt;
+
+&lt;p&gt;Happy writing.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;div class="footnotes"&gt;
+
+&lt;/div&gt;
+
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+  &lt;ol&gt;
+    &lt;li id="fn:1" role="doc-endnote"&gt;
+      &lt;p&gt;Important information that may distract from the main text can go in
+footnotes. &lt;a href="#fnref:1" class="reversefootnote" role="doc-backlink"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id="fn:2" role="doc-endnote"&gt;
+      &lt;p&gt;Footnotes will work in tables since they're just links. &lt;a href="#fnref:2" class="reversefootnote" role="doc-backlink"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry>
+    <title>kramdown post</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2015-12-15-kramdown-post.html"/>
+    <id>http://blog.url.com/blog/2015-12-15-kramdown-post.html</id>
+    <published>2015-12-15T02:47:00-06:00</published>
+    <updated>2021-01-27T00:57:05-06:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;getalong's &lt;a href="http://kramdown.gettalong.org/syntax.html" target="_blank"&gt;kramdown reference&lt;/a&gt;.
+And &lt;a href="http://kramdown.gettalong.org/quickref.html" target="_blank"&gt;quick reference&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Example Article</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2012-01-01-example-article.html"/>
+    <id>http://blog.url.com/blog/2012-01-01-example-article.html</id>
+    <published>2012-01-01T02:02:00-06:00</published>
+    <updated>2023-08-14T22:07:20-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Included within the context of zanshin is a separate move called yudaosbi, the
+lowering of the bow. In yudaosbi maintain visual contact with the target as you
+slowly lower your hands to your sides, so that the end of the bow is once again
+in line with the center of the body. Next, turn your head to face the kamiza.
+After that, step with the right foot in a half-step toward the center of the
+body, then bring the left foot over to meet the right, thus bringing the basic
+shooting procedure to a close.&lt;/p&gt;
+
+&lt;h2&gt;Ashibumi&lt;/h2&gt;
+
+&lt;p&gt;To make a smooth ashibumi, never shift your body or bend your legs when
+stepping. It is often helpful to think of spreading your feet as you would
+unfold a fan.&lt;/p&gt;
+
+&lt;!-- https://www.youtube.com/embed/Rpxz6bjmhBY
+All Japan Invitational College Championship 2018 -M DASH- video
+--&gt;
+
+&lt;figure&gt;
+&lt;p class="video-responsive"&gt;
+&lt;!-- &lt;iframe width="1588" height="558" src="https://www.youtube.com/embed/lCKLGMK_3No" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt; --&gt;
+&lt;iframe width="767" height="511" src="https://www.youtube.com/embed/iuWBPpCL6q4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""&gt;&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;figcaption&gt;
+標的を見詰める凜とした眼差しがとても美しい。 – video
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;If ashibumi is wider than normal, the body will be stable from the sides but
+far too weak from the front and back. Also, the arrow may fly high. Conversely,
+if the footing is too narrow, the body will be stable from the front and back
+but will have a tendency to lean to the left or right. Also, the arrow may fly
+too low.&lt;/p&gt;
+
+&lt;!-- In the following, the markdown ![](some/image.jpg) would be wrapped in &lt;p&gt; tags
+so we put spans around it --&gt;
+
+&lt;figure&gt;
+&lt;span&gt;
+&lt;img src="../assets/images/posts/example-article-2012-01-01/archery-12-1600-1067-95cd0d09.jpg" alt="" /&gt;
+&lt;/span&gt;
+&lt;figcaption&gt;
+Most &lt;em&gt;kyudojo&lt;/em&gt; use the seated form for daily practice
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Keep these four points in mind when making tenouchi:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Keep the wrist perfectly straight.&lt;/li&gt;
+  &lt;li&gt;Have the feeling of pushing the thumb forward along the top of the middle
+finger.&lt;/li&gt;
+  &lt;li&gt;Keep the bow pressed against the hand by working the last three fingers as if
+they were one.&lt;/li&gt;
+  &lt;li&gt;Hold the bow so that when the string is not under tension it is about five
+centimeters away from the forearm.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Intermediate Technique and Instruction&lt;/h2&gt;
+
+&lt;p&gt;To stand correctly, think of gently stretching the neck and spine so that your
+body is naturally straight.  Stand like a crane, not like a turtle. Here are
+five points to keep in mind when making dozukuri:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Gently stretch the neck and spine.&lt;/li&gt;
+  &lt;li&gt;Keep the small of the back tucked in.&lt;/li&gt;
+  &lt;li&gt;Have a feeling of lifting up the buttocks.&lt;/li&gt;
+  &lt;li&gt;Take up the slack in the upper and lower legs.&lt;/li&gt;
+  &lt;li&gt;Lightly lock the knees.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class="figure-l figure-em"&gt;
+&lt;span&gt;
+&lt;img src="../assets/images/posts/example-article-2012-01-01/origami-maid-cafe-girl-884b9a3c.jpg" alt="origami maid cafe girl" style="max-height: 22rem;" /&gt;
+&lt;/span&gt;
+&lt;/figure&gt;
+
+&lt;h3&gt;Torikake&lt;/h3&gt;
+
+&lt;p&gt;To make torikake, think of rotating your whole arm.  Do this with a feeling of
+pushing from under the elbow. This movement will transfer to the hand so that
+the thumb pushes up and outward, and the forefinger rotates to hold the arrow
+in place.&lt;/p&gt;
+
+&lt;h3&gt;Habiki&lt;/h3&gt;
+
+&lt;p class="clearfix"&gt;After completing the tenouchi and torikake, gently spread your back and
+shoulders to take up the slack in your arms. This action, called the habiki,
+will cause the string to be pulled slightly so that the feathers can clear the
+bow.&lt;/p&gt;
+
+&lt;p&gt;Today, advanced ceremonial shooting is performed by archers of great skill and
+experience. Consequently, it lies outside the sphere of practice of most
+kyudojo, where daily training tends to center around simple makiwara or target
+practice. The standard practice methods presented here, both seated and
+standing, are semiformal shooting procedures. These are used not only for daily
+practice but for contests and examinations as well. Therefore, when practicing
+these procedures you should try to exhibit a high degree of grace and
+refinement, just as the masters do when they perform a formal shooting
+ceremony.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Taihai means "form" and correct form is a product of
+correct posture and correct movement.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;When you visit a Japanese kyudojo, you will hear the instructor refer often to
+a student's taibai. Taihai means "form" and correct form is a product of
+correct posture and correct movement.&lt;/p&gt;
+
+&lt;h2&gt;Seated Practice&lt;/h2&gt;
+
+&lt;p&gt;To shoot the otoya, kneel once more and repeat steps 11-40. When finished,
+slide the right foot a half step forward and to the right to move away from the
+shai. Then, beginning with the left foot, leave the shooting area.&lt;/p&gt;
+
+&lt;h2&gt;Standing Practice&lt;/h2&gt;
+
+&lt;p&gt;If one has difficulty kneeling, the shooting procedure may be carried out
+entirely from the standing position.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>all footer art</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2011-10-09-all-footer-art.html"/>
+    <id>http://blog.url.com/blog/2011-10-09-all-footer-art.html</id>
+    <published>2011-10-09T20:14:00-05:00</published>
+    <updated>2022-05-26T18:15:55-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/404.png" alt="404 footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;404&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/applications.png" alt="applications footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;applications&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/art.png" alt="art footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;art&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/art-2.png" alt="art-2 footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;art-2&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/balloons.png" alt="balloons footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;balloons&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/birdnflags.png" alt="birdnflags footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;birdnflags&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/community.png" alt="community footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;community&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/default.png" alt="default footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;default&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/friends.png" alt="friends footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;friends&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/i18n.png" alt="i18n footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;i18n&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/library.png" alt="library footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;library&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/search_no-results.png" alt="search_no-results footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;search_no-results&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/search.png" alt="search footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;search&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure&gt;
+    &lt;img src="/assets/stylesheets/img/footer_arts/support.png" alt="support footer image" /&gt;
+  &lt;figcaption&gt;
+    &lt;span class="hp"&gt;support&lt;/span&gt;
+  &lt;/figcaption&gt;
+  &lt;/figure&gt;
+
+&lt;p&gt;Ballons at &lt;a
+  href="http://web.archive.org/web/20120716233929if_/http://www.gnome.org/foundation/"
+  target="_blank"&gt; archive of page from The GNOME Foundation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;And here's a &lt;a
+  href="http://web.archive.org/web/2012061504181if_1/http://www.gnome.org/support-gnome/"
+  target="_blank"&gt; default footer&lt;/a&gt; on a not too large page.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://themetix.com/gnome-grass" target="_blank"&gt; A footer&lt;/a&gt;
+somewhat like what we've collected.&lt;/p&gt;
+
+&lt;p&gt;the &lt;a href="https://github.com/vdepizzol/gnome-grass" target="_blank"&gt;
+gnome-grass theme&lt;/a&gt; on github.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
