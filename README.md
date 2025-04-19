@@ -2,7 +2,7 @@
 
 This is the repository for Roji, a minimalist and elegant static site built with Middleman and inspired by Pixyll.
 
-Visit the live site here: <https://traven-b.github.io/roji/>.
+**Visit the live site here**: <https://traven-b.github.io/roji/>.
 
 ---
 
