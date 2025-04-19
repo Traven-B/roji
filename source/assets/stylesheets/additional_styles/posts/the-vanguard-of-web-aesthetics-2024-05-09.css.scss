@@ -1,0 +1,39 @@
+// stylesheet: additional_styles/posts/the-vanguard-of-web-aesthetics-2024-05-09
+
+@charset "utf-8";
+
+@import '../../_sass/_variables.scss';
+
+// @import 'scss/_media-object.scss'; // this is redundant, its in pixyll.css
+// we will copy from it
+
+// Converted Variables
+
+// $space-1: .5rem !default;   // as in basscss
+// $media-object-space: $space-1 !default;
+
+// // Custom Media Query Variables
+
+// $breakpoint-sm: '(min-width: 40em)' !default;
+// $breakpoint-md: '(min-width: 52em)' !default;
+// $breakpoint-lg: '(min-width: 64em)' !default;
+
+details.description[open] summary::after {
+  content: attr(data-open);
+}
+
+details.description:not([open]) summary::after {
+  content: attr(data-close);
+}
+
+.extra {
+  margin-bottom: 3.5rem;
+}
+
+@media screen and (min-width: $viewport-small) {
+  .extra {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+

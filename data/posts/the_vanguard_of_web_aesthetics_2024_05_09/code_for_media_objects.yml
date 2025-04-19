@@ -1,0 +1,121 @@
+---
+dummy1: dummy2
+---
+### scss
+
+_media-object.scss
+in scss dir, not \_sass dir, but included in pixyll.css.scss
+
+~~~
+/* Basscss Media Object */
+
+.media,
+.sm-media,
+.md-media,
+.lg-media {
+  margin-left: -$media-object-space;
+  margin-right: -$media-object-space;
+}
+
+.media {
+  display: flex;
+}
+
+.media-center {
+  align-items: center;
+}
+
+.media-bottom {
+  align-items: flex-end;
+}
+
+.media-img,
+.media-body {
+  padding-left: $media-object-space;
+  padding-right: $media-object-space;
+}
+
+.media-body {
+  flex: 1 1 auto;
+}
+
+@media screen and (min-width: $viewport-small) {
+  .sm-media { display: flex }
+
+~~~
+{: .language-scss}
+
+
+in directory `assets/stylesheets/additional_styles/posts/`
+we have `the-vanguard-of-web-aesthetics-2024-05-09.css.scss`
+It is associated with this post because it is named in the
+front matter as
+
+~~~
+---
+title: The vanguard of web aesthetics
+stylesheet: additional_styles/posts/the-vanguard-of-web-aesthetics-2024-05-09
+---
+~~~
+
+Its contents tweaks the vertical margins of the object:
+
+~~~
+.extra {
+  margin-bottom: 3.5rem;
+}
+
+@media screen and (min-width: $viewport-small) {
+  .extra {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+~~~
+{: .language-scss}
+
+### HTML produced by erb
+
+Embedded ruby reads the red_zen.yml data file for image names and accompanying text.
+
+~~~
+<% elements = data.posts.the_vanguard_of_web_aesthetics_2024_05_09.red_zen %>
+
+<% elements.each do |e| -%>
+<div class="mt3 mb3 sm-media media-center">
+<%= image_tag "posts/the-vanguard-of-web-aesthetics-2024-05-09/#{e[:img]}",
+                 :style => "max-width: 12rem;" %>
+  <div class="media-body">
+    <p class="h2 hw mb0">
+    <%= e[:name] %>
+    </p>
+    <p class="extra" markdown="1">
+    <%= e[:text] %>
+    </p>
+  </div>
+</div>
+<% end -%>
+~~~
+{: .language-erb}
+
+### The YAML data
+
+~~~
+---
+- :img: red.jpg
+  :name: Nari
+  :text: >-
+     The mind can go in a thousand directions, but on this beautiful path,
+     I walk in peace. With each step, the wind nurtures my seeds of belonging.
+- :img: red-2.jpg
+  :name: Ae-Cha
+  :text: >-
+     In the landscape of spring, there is neither better nor worse.
+     The flowering branches grow naturally, some long, some short.
+~~~
+
+Consider using the `do_images.rb` utility to automate the creation of an image
+directory associated with a particular post, fetch and name images, and write
+to stdout a line of Markdown for each image, using a template you provide. Run
+`utils/do_images.rb --help` for usage.
+
