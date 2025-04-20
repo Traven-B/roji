@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://blog.url.com/blog/2024-05-09-the-vanguard-of-web-aesthetics.html"/>
     <id>http://blog.url.com/blog/2024-05-09-the-vanguard-of-web-aesthetics.html</id>
     <published>2024-05-09T16:33:00-05:00</published>
-    <updated>2025-04-19T08:28:14-05:00</updated>
+    <updated>2025-04-19T18:17:31-05:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -818,6 +818,160 @@ shai. Then, beginning with the left foot, leave the shooting area.&lt;/p&gt;
 
 &lt;p&gt;If one has difficulty kneeling, the shooting procedure may be carried out
 entirely from the standing position.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Using VW units for a full-width layout</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2011-10-20-using-vw-units-for-a-full-width-layout.html"/>
+    <id>http://blog.url.com/blog/2011-10-20-using-vw-units-for-a-full-width-layout.html</id>
+    <published>2011-10-20T16:50:00-05:00</published>
+    <updated>2025-04-19T19:09:00-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;A CSS Grid gallery using viewport units (VW) to extend beyond the central text
+column, creating a full-width layout within the site’s existing wrapper
+structure.
+Also a script ensures intentional line breaks in gallery headers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In the latter half of the seventeenth century, the general populace took up the
+practice of archery in increasing numbers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="full-width"&gt;
+  &lt;div class="gallery"&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-8f34c1cc.jpg" class="tweak-placement-3" alt="" /&gt;
+
+      &lt;h3&gt;Traditional Bow&lt;/h3&gt;
+      &lt;p&gt;The traditional Japanese bow, known as "yumi", is asymmetrical and much longer than Western bows.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-2-389970d2.jpg" class="tweak-placement-3" alt="" /&gt;
+
+      &lt;h3&gt;Kyudo Practice&lt;/h3&gt;
+      &lt;p&gt;Kyudo practitioners focus on proper form and spiritual development alongside accuracy.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-3-2fcedb0f.jpg" class="tweak-placement-5" alt="" /&gt;
+
+      &lt;h3&gt;Archery Equipment&lt;/h3&gt;
+      &lt;p&gt;Various tools and equipment used in Japanese archery, including arrows (ya) and gloves (yugake).&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-4-0f59f573.jpg" class="tweak-placement-4" alt="" /&gt;
+
+      &lt;h3&gt;Modern Competition&lt;/h3&gt;
+      &lt;p&gt;While rooted in tradition, Kyudo is also practiced as a competitive sport in modern Japan.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-5-d7fbf7f0.jpg" class="tweak-placement-4" alt="" /&gt;
+
+      &lt;h3&gt;Hassetsu - The Eight Stages of Shooting&lt;/h3&gt;
+      &lt;p&gt;The study of kyudo is divided into eight fundamental stages known as the hassetsu.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-6-ef73913c.jpg" class="tweak-placement-5" alt="" /&gt;
+
+      &lt;h3&gt;Ashibumi - footing&lt;/h3&gt;
+      &lt;p&gt;Asbibumi is the foundation upon which the remaining stages of the hassetsu are built.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-7-46deccd0.jpg" class="tweak-placement-4" alt="" /&gt;
+
+      &lt;h3&gt;Dozukuri - correcting the posture&lt;/h3&gt;
+      &lt;p&gt;Once the feet are in place you must turn your attention to the posture of the upper body.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-8-760cf0ea.jpg" class="tweak-placement-3" alt="" /&gt;
+
+      &lt;h3&gt;Yugamae - readying the bow&lt;/h3&gt;
+      &lt;p&gt;There are two styles oi yugamae in modern kyudo. The first is  shomen no kamae.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-9-ac52d545.jpg" class="tweak-placement-5" alt="" /&gt;
+
+      &lt;h3&gt;Totikake&lt;/h3&gt;
+      &lt;p&gt;One of the more difficult tasks in kyudo is making a clean, effortless release of the arrow.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-10-c2b232b8.jpg" class="tweak-placement-4" alt="" /&gt;
+
+      &lt;h3&gt;Tenouchi&lt;/h3&gt;
+      &lt;p&gt;After setting the glove you must prepare the tenouchi, a special method of holding the bow.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-11-37035fc3.jpg" class="tweak-placement-5" alt="" /&gt;
+
+      &lt;h3&gt;Nlonomi&lt;/h3&gt;
+      &lt;p&gt;Monomi, which literally means to view the object, is the final preparation in yugamae.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-12-ffe4a499.jpg" class="tweak-placement-4" alt="" /&gt;
+
+      &lt;h3&gt;Uchiokoshi - raising the bow&lt;/h3&gt;
+      &lt;p&gt;The bow is drawn primarily with the back and chest muscles, and not with the arms or hands.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="gallery-item"&gt;
+
+  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2011-10-20/archery-13-516ebab9.jpg" class="tweak-placement-2" alt="" /&gt;
+
+      &lt;h3&gt;Kai - completing the draw&lt;/h3&gt;
+      &lt;p&gt;Never think about when to release, simply wait until the moment is ripe for the arrow to fly.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Kyudo cannot be learned through technique alone; we must never forget the
+importance of the inner self when practicing.&lt;/p&gt;
+
+&lt;script&gt;
+ // Code to  prevent widows in gallery item headers when they wrap
+document.addEventListener('DOMContentLoaded', function() {
+  // Select all h3 elements within gallery items
+  document.querySelectorAll('.gallery-item h3').forEach(function(heading) {
+    // Split the heading text into an array of words
+    let words = heading.innerHTML.split(' ');
+    // Check if there are more than one word
+    if (words.length &gt; 1) {
+      // Combine the last two words with a non-breaking space
+      words[words.length - 2] += '&amp;nbsp;' + words.pop(); // Add non-breaking space
+      // Join the words back into a single string and update the heading
+      heading.innerHTML = words.join(' ');
+    }
+  });
+});
+&lt;/script&gt;
+
 </content>
   </entry>
   <entry>
