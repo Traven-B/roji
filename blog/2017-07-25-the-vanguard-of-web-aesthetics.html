@@ -12,7 +12,7 @@
     <link href="../assets/stylesheets/fonts_webfonts-1fead4a3.css" rel="stylesheet" />
     <link href="../assets/stylesheets/pixyll-a3f939ae.css" rel="stylesheet" />
     <!-- sometimes CSS -->
-    <link href="../assets/stylesheets/additional_styles/posts/the-vanguard-of-web-aesthetics-2024-05-09-ad8996c1.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/additional_styles/posts/the-vanguard-of-web-aesthetics-2017-07-25-ad8996c1.css" rel="stylesheet" />
   </head>
   <!-- end head include -->
 
@@ -45,7 +45,7 @@
 
 <div class="post-header mb2">
   <h1>The vanguard of web aesthetics</h1>
-  <span class="post-meta">May 09, 2024</span><br>
+  <span class="post-meta">Jul 25, 2017</span><br>
 
 <p class="small">
  <span class="category-tags-icons fa fa-folder-open"></span>&nbsp;
@@ -75,39 +75,41 @@
 <!-- 
 I can and do say
 
-    <%= image_tag "posts/the-vanguard-of-web-aesthetics-2024-05-09/#{e[:img]}" %>
+    <%= image_tag "posts/the-vanguard-of-web-aesthetics-2017-07-25/#{e[:img]}" %>
 
-where the-vanguard-of-web-aesthetics-2024-05-09 is a directory name, a subdirectory of images/posts
+where the-vanguard-of-web-aesthetics-2017-07-25 is a directory name, a subdirectory of images/posts
 
 But I can not say
 
-    <% elements = data.posts.the-vanguard-of-web-aesthetics-2024-05-09.red_zen %>
+    <% elements = data.posts.the-vanguard-of-web-aesthetics-2017-07-25.red_zen %>
 
-where  the-vanguard-of-web-aesthetics-2024-05-09 would be a directory name, a subdirectory of data/posts
+where  the-vanguard-of-web-aesthetics-2017-07-25 would be a directory name, a subdirectory of data/posts
 
 but instead have to say
 
-    <% elements = data.posts.the_vanguard_of_web_aesthetics_2024_05_09.red_zen %>
+    <% elements = data.posts.the_vanguard_of_web_aesthetics_2017_07_25.red_zen %>
 
-where the_vanguard_of_web_aesthetics_2024_05_09 is a directory name with underscores, a subdirectory of data/posts
+where the_vanguard_of_web_aesthetics_2017_07_25 is a directory name with underscores, a subdirectory of data/posts
  -->
 
 <ul>
   <li>Responsive Media Objects
     <ul>
-      <li><a href="2024-05-09-the-vanguard-of-web-aesthetics.html#rmo_code">code</a></li>
-      <li><a href="2024-05-09-the-vanguard-of-web-aesthetics.html#rmo_render">render</a></li>
+      <li><a href="2017-07-25-the-vanguard-of-web-aesthetics.html#rmo_code">code</a></li>
+      <li><a href="2017-07-25-the-vanguard-of-web-aesthetics.html#rmo_render">render</a></li>
     </ul>
   </li>
   <li>Alternate Floating Left and Right
     <ul>
-      <li><a href="2024-05-09-the-vanguard-of-web-aesthetics.html#flr_code">code</a></li>
-      <li><a href="2024-05-09-the-vanguard-of-web-aesthetics.html#flr_render">render</a></li>
+      <li><a href="2017-07-25-the-vanguard-of-web-aesthetics.html#flr_code">code</a></li>
+      <li><a href="2017-07-25-the-vanguard-of-web-aesthetics.html#flr_render">render</a>
+</li>
     </ul>
   </li>
 </ul>
 
-<p><!-- best when no newline between div,#rmo_ id details --></p>
+<!-- best when no newline between div,#rmo_ id details -->
+
 <div>
   <details class="description" id="rmo_code">
     <summary class="hw h2" data-open="Hide Responsive Media Objects code" data-close="View Responsive Media Objects code"></summary>
@@ -154,13 +156,13 @@ in scss dir, not _sass dir, but included in pixyll.css.scss</p>
 
 </code></pre></div>
     <p>in directory <code>assets/stylesheets/additional_styles/posts/</code>
-we have <code>the-vanguard-of-web-aesthetics-2024-05-09.css.scss</code>
+we have <code>the-vanguard-of-web-aesthetics-2017-07-25.css.scss</code>
 It is associated with this post because it is named in the
 front matter as</p>
 
 <div class="highlight"><pre class="highlight plaintext"><code>---
 title: The vanguard of web aesthetics
-stylesheet: additional_styles/posts/the-vanguard-of-web-aesthetics-2024-05-09
+stylesheet: additional_styles/posts/the-vanguard-of-web-aesthetics-2017-07-25
 ---
 </code></pre></div>
     <p>Its contents tweaks the vertical margins of the object:</p>
@@ -180,11 +182,11 @@ stylesheet: additional_styles/posts/the-vanguard-of-web-aesthetics-2024-05-09
 
     <p>Embedded ruby reads the red_zen.yml data file for image names and accompanying text.</p>
 
-<div class="highlight"><pre class="highlight erb"><code><span class="cp">&lt;%</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">posts</span><span class="p">.</span><span class="nf">the_vanguard_of_web_aesthetics_2024_05_09</span><span class="p">.</span><span class="nf">red_zen</span> <span class="cp">%&gt;</span>
+<div class="highlight"><pre class="highlight erb"><code><span class="cp">&lt;%</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">posts</span><span class="p">.</span><span class="nf">the_vanguard_of_web_aesthetics_2017</span> <span class="mo">07</span> <span class="mi">25</span><span class="p">.</span><span class="nf">red_zen</span> <span class="cp">%&gt;</span>
 
 <span class="cp">&lt;%</span> <span class="n">elements</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="cp">-%&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"mt3 mb3 sm-media media-center"</span><span class="nt">&gt;</span>
-<span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"posts/the-vanguard-of-web-aesthetics-2024-05-09/</span><span class="si">#{</span><span class="n">e</span><span class="p">[</span><span class="ss">:img</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+<span class="cp">&lt;%=</span> <span class="n">image_tag</span> <span class="s2">"posts/the-vanguard-of-web-aesthetics-2017-07-25/</span><span class="si">#{</span><span class="n">e</span><span class="p">[</span><span class="ss">:img</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
                  <span class="ss">:style</span> <span class="o">=&gt;</span> <span class="s2">"max-width: 12rem;"</span> <span class="cp">%&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"h2 hw mb0"</span><span class="nt">&gt;</span>
@@ -225,7 +227,7 @@ to stdout a line of Markdown for each image, using a template you provide. Run
 <h2 id="rmo_render">Responsive Media Objects (render)</h2>
 
 <div class="mt3 mb3 sm-media media-center">
-  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-a0c65ad0.jpg" style="max-width: 12rem;" alt="" />
+  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-a0c65ad0.jpg" style="max-width: 12rem;" alt="" />
   <div class="media-body">
   <!--       "h2 heading-font-family bold mb0" -->
     <p class="h2 hw mb0">
@@ -237,7 +239,7 @@ to stdout a line of Markdown for each image, using a template you provide. Run
   </div>
 </div>
 <div class="mt3 mb3 sm-media media-center">
-  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-2-9b65a3fb.jpg" style="max-width: 12rem;" alt="" />
+  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-2-9b65a3fb.jpg" style="max-width: 12rem;" alt="" />
   <div class="media-body">
   <!--       "h2 heading-font-family bold mb0" -->
     <p class="h2 hw mb0">
@@ -249,7 +251,7 @@ to stdout a line of Markdown for each image, using a template you provide. Run
   </div>
 </div>
 <div class="mt3 mb3 sm-media media-center">
-  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-3-2aab353c.jpg" style="max-width: 12rem;" alt="" />
+  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-3-2aab353c.jpg" style="max-width: 12rem;" alt="" />
   <div class="media-body">
   <!--       "h2 heading-font-family bold mb0" -->
     <p class="h2 hw mb0">
@@ -261,7 +263,7 @@ to stdout a line of Markdown for each image, using a template you provide. Run
   </div>
 </div>
 <div class="mt3 mb3 sm-media media-center">
-  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-4-87f69139.jpg" style="max-width: 12rem;" alt="" />
+  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-4-87f69139.jpg" style="max-width: 12rem;" alt="" />
   <div class="media-body">
   <!--       "h2 heading-font-family bold mb0" -->
     <p class="h2 hw mb0">
@@ -273,7 +275,7 @@ to stdout a line of Markdown for each image, using a template you provide. Run
   </div>
 </div>
 <div class="mt3 mb3 sm-media media-center">
-  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-5-73054e27.jpg" style="max-width: 12rem;" alt="" />
+  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-5-73054e27.jpg" style="max-width: 12rem;" alt="" />
   <div class="media-body">
   <!--       "h2 heading-font-family bold mb0" -->
     <p class="h2 hw mb0">
@@ -285,7 +287,7 @@ to stdout a line of Markdown for each image, using a template you provide. Run
   </div>
 </div>
 <div class="mt3 mb3 sm-media media-center">
-  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-6-267e83cb.jpg" style="max-width: 12rem;" alt="" />
+  <img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-6-267e83cb.jpg" style="max-width: 12rem;" alt="" />
   <div class="media-body">
   <!--       "h2 heading-font-family bold mb0" -->
     <p class="h2 hw mb0">
@@ -299,14 +301,15 @@ to stdout a line of Markdown for each image, using a template you provide. Run
 
 <div class="pagination clearfix"><div class="right"><a href="#">Top</a></div></div>
 
-<p><!-- best when no newline between div,#flr_ id details --></p>
+<!-- best when no newline between div,#flr_ id details -->
+
 <div>
   <details class="description" id="flr_code">
     <summary class="hw h2" data-open="Hide Alternate Floating Left and Right code" data-close="View Alternate Floating Left and Right code"></summary>
 
     <h3>using erb with above yaml data</h3>
 
-<div class="highlight"><pre class="highlight erb"><code><span class="cp">&lt;%</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">posts</span><span class="p">.</span><span class="nf">the_vanguard_of_web_aesthetics_2024_05_09</span><span class="p">.</span><span class="nf">red_zen</span> <span class="cp">%&gt;</span>
+<div class="highlight"><pre class="highlight erb"><code><span class="cp">&lt;%</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">posts</span><span class="p">.</span><span class="nf">the_vanguard_of_web_aesthetics_2017_07_25</span><span class="p">.</span><span class="nf">red_zen</span> <span class="cp">%&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
 <span class="cp">&lt;%</span> <span class="n">side</span> <span class="o">=</span> <span class="ss">:right</span> <span class="cp">%&gt;</span>
 <span class="cp">&lt;%</span> <span class="n">class_attrs</span> <span class="o">=</span> <span class="p">{}</span> <span class="cp">%&gt;</span>
@@ -344,7 +347,7 @@ arrows, while those that curve to the right are called otoya, or second arrows.
 <h2 id="flr_render">Alternate Floating Left and Right (render)</h2>
 
 <div>
-  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-a0c65ad0.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" />
+  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-a0c65ad0.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" />
  Of the hand and the wrist bone. Continue wrapping the large strap around
 the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
 of the hand, tuck the end piece under the top layer of the large strap and pull
@@ -360,7 +363,7 @@ Feathers from both the right side and the left side are used to make arrows.
 Arrows that have feathers that curve to the left are called baya, or first
 arrows, while those that curve to the right are called otoya, or second arrows.</p>
 
-  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-2-9b65a3fb.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" />
+  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-2-9b65a3fb.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" />
  Of the hand and the wrist bone. Continue wrapping the large strap around
 the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
 of the hand, tuck the end piece under the top layer of the large strap and pull
@@ -376,7 +379,7 @@ Feathers from both the right side and the left side are used to make arrows.
 Arrows that have feathers that curve to the left are called baya, or first
 arrows, while those that curve to the right are called otoya, or second arrows.</p>
 
-  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-3-2aab353c.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" />
+  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-3-2aab353c.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" />
  Of the hand and the wrist bone. Continue wrapping the large strap around
 the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
 of the hand, tuck the end piece under the top layer of the large strap and pull
@@ -392,7 +395,7 @@ Feathers from both the right side and the left side are used to make arrows.
 Arrows that have feathers that curve to the left are called baya, or first
 arrows, while those that curve to the right are called otoya, or second arrows.</p>
 
-  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-4-87f69139.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" />
+  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-4-87f69139.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" />
  Of the hand and the wrist bone. Continue wrapping the large strap around
 the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
 of the hand, tuck the end piece under the top layer of the large strap and pull
@@ -408,7 +411,7 @@ Feathers from both the right side and the left side are used to make arrows.
 Arrows that have feathers that curve to the left are called baya, or first
 arrows, while those that curve to the right are called otoya, or second arrows.</p>
 
-  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-5-73054e27.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" />
+  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-5-73054e27.jpg" style="max-width: 12rem;" class="right ml2 mb1" alt="" />
  Of the hand and the wrist bone. Continue wrapping the large strap around
 the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
 of the hand, tuck the end piece under the top layer of the large strap and pull
@@ -424,7 +427,7 @@ Feathers from both the right side and the left side are used to make arrows.
 Arrows that have feathers that curve to the left are called baya, or first
 arrows, while those that curve to the right are called otoya, or second arrows.</p>
 
-  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2024-05-09/red-6-267e83cb.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" />
+  <p><img src="../assets/images/posts/the-vanguard-of-web-aesthetics-2017-07-25/red-6-267e83cb.jpg" style="max-width: 12rem;" class="left mr2 mb1" alt="" />
  Of the hand and the wrist bone. Continue wrapping the large strap around
 the wrist, leaving a fifteen-centimeter length at the end. Moving from the base
 of the hand, tuck the end piece under the top layer of the large strap and pull

@@ -44,39 +44,26 @@
           <div class="home">
   <div class="posts">
       <div class="post py3">
-        <p class="post-meta"> May  9, 2024 </p>
+        <p class="post-meta"> Feb 18, 2018 </p>
 
         <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
 
 
-        <a href="blog/2024-05-09-the-vanguard-of-web-aesthetics.html" class="post-link"><h3 class="h1 post-title">The vanguard of web aesthetics</h3></a>
+        <a href="blog/2018-02-18-roji-a-pixyll-based-middleman-theme.html" class="post-link"><h3 class="h1 post-title">Roji: Pixyll meets Middleman</h3></a>
 
 
         <div class="post-summary">
-        <ul>
-  <li>Responsive Media Objects
-    <ul>
-      <li>code</li>
-      <li>render</li>
-    </ul>
-  </li>
-  <li>Alternate Floating Left and Right
-    <ul>
-      <li>code</li>
-      <li>render</li>
-    </ul>
-  </li>
-</ul>
-
+        <p>Preserving minimalism, embracing Middleman.
+</p>
         </div>
       </div>
       <div class="post py3">
-        <p class="post-meta"> Mar 12, 2019 </p>
+        <p class="post-meta"> Oct 10, 2017 </p>
 
         <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
 
 
-        <a href="blog/2019-03-12-pixyll-in-action.html" class="post-link"><h3 class="h1 post-title">Pixyll in Action</h3></a>
+        <a href="blog/2017-10-10-pixyll-in-action.html" class="post-link"><h3 class="h1 post-title">Pixyll in Action</h3></a>
 
 
         <div class="post-summary">
@@ -96,28 +83,12 @@ styling to ensure that your content is emphasized while still...</p>
         </div>
       </div>
       <div class="post py3">
-        <p class="post-meta"> Dec 15, 2015 </p>
+        <p class="post-meta"> Sep  4, 2017 </p>
 
         <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
 
 
-        <a href="blog/2015-12-15-kramdown-post.html" class="post-link"><h3 class="h1 post-title">kramdown post</h3></a>
-
-
-        <div class="post-summary">
-        <p>getalong's <a href="http://kramdown.gettalong.org/syntax.html" target="_blank">kramdown reference</a>.
-And <a href="http://kramdown.gettalong.org/quickref.html" target="_blank">quick reference</a>.</p>
-
-
-        </div>
-      </div>
-      <div class="post py3">
-        <p class="post-meta"> Jan  1, 2012 </p>
-
-        <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
-
-
-        <a href="blog/2012-01-01-example-article.html" class="post-link"><h3 class="h1 post-title">Example Article</h3></a>
+        <a href="blog/2017-09-04-example-article.html" class="post-link"><h3 class="h1 post-title">Example Article</h3></a>
 
 
         <div class="post-summary">
@@ -126,12 +97,72 @@ lowering of the bow. In yudaosbi maintain visual...</p>
         </div>
       </div>
       <div class="post py3">
-        <p class="post-meta"> Oct 20, 2011 </p>
+        <p class="post-meta"> Jul 25, 2017 </p>
 
         <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
 
 
-        <a href="blog/2011-10-20-using-vw-units-for-a-full-width-layout.html" class="post-link"><h3 class="h1 post-title">Using VW units for a full-width layout</h3></a>
+        <a href="blog/2017-07-25-the-vanguard-of-web-aesthetics.html" class="post-link"><h3 class="h1 post-title">The vanguard of web aesthetics</h3></a>
+
+
+        <div class="post-summary">
+        <!-- https://github.com/basscss/addons/blob/master/modules/media-object/README.md -->
+<!-- can use just css to alternate positioning, how many browsers allow -->
+<!-- https://stackoverflow.com/questions/11781531/alternating-left-and-right-positioning-with-css -->
+<!-- can we construct links to fragments on this page with markdown []() notation -->
+<!-- css to show and hide stuff, 1st problem, need # signs for id's, also links to fragment anchor cause page to move up -->
+<!-- https://stackoverflow.com/questions/40312901/showing-and-hiding-something-with-pure-css-with-show-and-hide-button -->
+<!-- display, summary using kramdown with code blocks he uses backticks though? -->
+<!-- https://www.endtoend.ai/tutorial/collapsible-code-blocks/#the-safe-arduous-way -->
+<!-- getalong turning off markdown processing and doing figure stuff, used this before I believe -->
+<!-- https://github.com/gettalong/kramdown/issues/48 -->
+<!-- moz dev page on details/summary -->
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details -->
+
+<!-- 
+I can and do say
+
+    <%= image_tag "posts/the-vanguard-of-web-aesthetics-2017-07-25/#{e[:img]}" %>
+
+where the-vanguard-of-web-aesthetics-2017-07-25 is a directory name, a subdirectory of images/posts
+
+But I can not say
+
+    <% elements = data.posts.the-vanguard-of-web-aesthetics-2017-07-25.red_zen %>
+
+where  the-vanguard-of-web-aesthetics-2017-07-25 would be a directory name, a subdirectory of data/posts
+
+but instead have to say
+
+    <% elements = data.posts.the_vanguard_of_web_aesthetics_2017_07_25.red_zen %>
+
+where the_vanguard_of_web_aesthetics_2017_07_25 is a directory name with underscores, a subdirectory of data/posts
+ -->
+
+<ul>
+  <li>Responsive Media Objects
+    <ul>
+      <li>code</li>
+      <li>render</li>
+    </ul>
+  </li>
+  <li>Alternate Floating Left and Right
+    <ul>
+      <li>code</li>
+      <li>render
+</li>
+</ul>
+</li>
+</ul>
+        </div>
+      </div>
+      <div class="post py3">
+        <p class="post-meta"> Jun 28, 2017 </p>
+
+        <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
+
+
+        <a href="blog/2017-06-28-using-vw-units-for-a-full-width-layout.html" class="post-link"><h3 class="h1 post-title">Using VW units for a full-width layout</h3></a>
 
 
         <div class="post-summary">
