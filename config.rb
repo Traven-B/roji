@@ -118,21 +118,20 @@ activate :blog do |blog|
     blog.summary_generator = proc do |article, rendered, length, ellipsis|
       # article is Middleman::Sitemap::Resource # rendered is ActiveSupport::SafeBuffer
       if article.data["summary"]
-        # dunno about line_width and hard_warp and auto_ids
         # we can haz fancy in summary, header, lists, et all
         # https://stackoverflow.com/questions/3790454/how-do-i-break-a-string-in-yaml-over-multiple-lines
         Kramdown::Document.new(article.data["summary"], line_width: 80, hard_wrap: false, auto_ids: false).to_html
       else
-        f = Nokogiri::HTML.fragment(rendered)
-        f.search(".//figure").remove
-        f.search(".//img").remove
-        # when p contains image which is a link, we end up wit <p><a>...</a></p>
-        # which we can remove, didn't affect length though
-        # what I saw, what one guy did, not seeing any anchors with no text not wrapped in p tags
-        f.css("p").each do |node|
-          node.remove if node.inner_text == ""
+        # Auto-generated summary: Remove figures/images, strip ALL links
+        doc = Nokogiri::HTML.fragment(rendered)
+        doc.css("figure, img, a").each do |node|
+          node.replace(node.text) if node.name == "a"
+          node.remove
         end
-        article.default_summary_generator(f.to_html, length, ellipsis)
+
+        # Remove empty containers
+        doc.css("ul, ol, p, em").each { |e| e.remove if e.content.strip.empty? }
+        article.default_summary_generator(doc.to_html, length, ellipsis)
       end
     end
   end
