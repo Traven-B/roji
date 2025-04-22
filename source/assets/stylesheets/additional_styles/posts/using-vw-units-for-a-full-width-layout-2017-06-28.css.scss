@@ -1,0 +1,82 @@
+// stylesheet: additional_styles/posts/using-vw-units-for-a-full-width-layout-2017-06-28
+
+@charset "utf-8";
+
+@import '../../_sass/_variables.scss';
+
+.full-width {
+  max-width: 100vw;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.gallery-item {
+  background-color: #e7e7e7;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.tweak-placement-1 {
+  object-position: 50% 10%;
+}
+
+.tweak-placement-2 {
+  object-position: 50% 20%;
+}
+
+.tweak-placement-3 {
+  object-position: 50% 30%;
+}
+
+.tweak-placement-4 {
+  object-position: 50% 40%;
+}
+
+.tweak-placement-5 {
+  object-position: 50% 50%;
+}
+
+.tweak-placement-6 {
+  object-position: 50% 60%;
+}
+
+.tweak-placement-7 {
+  object-position: 50% 70%;
+}
+
+.tweak-placement-8 {
+  object-position: 50% 80%;
+}
+
+.tweak-placement-9 {
+  object-position: 50% 90%;
+}
+
+.gallery-item h3 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  text-align: center; /* Center the headings */
+}
+
+.gallery-item p {
+  font-size: 1.0rem;
+  color: #000;
+  max-width: 400px; /* Add this line */
+  margin: 0 auto; /* Center the item when it's narrower than its container */
+}
