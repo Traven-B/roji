@@ -33,10 +33,20 @@ $measure-width: 42rem !default;
       // when using my px units idea
 // $measure-width: 840px !default;
 
-// Viewport widths
+Viewport widths
 $viewport-small: 32em;
 $viewport-medium: 48em;
 $viewport-large: 64em;
+
+// alternative units for viewport width values
+// based on the browser having default pixyll size of 16px
+// the css media queries always respect the browser default font size setting
+// 32  * 16px = 512px
+// 32em means "32 times the current font size"
+
+// $viewport-small: 512px;
+// $viewport-medium: 768px;
+// $viewport-large: 1024px;
 
 // Colors
 $blue: #0076df !default;
