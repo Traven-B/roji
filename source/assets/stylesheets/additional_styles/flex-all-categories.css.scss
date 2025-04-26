@@ -1,0 +1,80 @@
+/* sit-header makes the links of text not blue */
+/* p-m makes grey italics */
+/* entry-date is display none / inline media query */
+/* right doesnt seem to do anything in ul or table */
+
+@charset "utf-8";
+
+// @import '../_sass/_variables.scss';
+
+/* Default styles for mobile */
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* specifying font-size: here hurts, not helps */
+  line-height: 1.2em;
+
+}
+
+.tag-list li {
+  display: flex;
+  margin-top: 0.25rem;
+}
+
+.tag-list .bullet {
+  display: flex;
+  color: #0076df;
+  align-self: flex-start;
+  margin-top: -0.15rem;
+  font-size: 1.25rem;
+  margin-right: 0.25rem;
+}
+
+.tag-list .bullet::before {
+  content: "\2022";
+}
+
+
+.tag-list .text {
+  border-bottom: 1px dashed #ccc;
+  width: 95%;
+}
+
+.tag-list .date {
+  border-bottom: 1px dashed #ccc;
+  width: 5%;
+}
+
+.tag-list li:last-child .text,
+.tag-list li:last-child .date {
+  border: none;
+}
+
+.tag-list .text {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: normal; /* Allow text wrapping on narrow screens */
+  text-overflow: unset; /* Remove ellipsis on narrow screens */
+}
+
+.tag-list .date {
+  display: none; /* Hide the date by default on mobile */
+}
+
+/* Styles for larger screens */
+/* @media (min-width: 48em) { */
+@media screen and (min-width: 48em) {
+  .tag-list .date {
+    display: block; /* Show the date on larger screens */
+    width: 25%;
+    width: 32%;
+    text-align: right;
+  }
+
+  .tag-list .text {
+    white-space: nowrap; /* Prevent text wrapping on larger screens */
+    Wwidth: auto;
+    text-overflow: ellipsis; /* Add ellipsis for truncated text */
+  }
+}

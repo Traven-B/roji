@@ -1,0 +1,28 @@
+---
+layout: page
+title: Category Index
+footer_art: search
+stylesheet: additional_styles/flex-all-categories
+---
+<% topics = blog.articles.group_by {|a| a.metadata[:page][:category] }.delete_if { |category, a| category.nil? } %>
+
+<div class="ml2">
+  <% topics.sort_by{|topic, articles| topic.downcase }.each do |topic, articles| %>
+   <%= link_to "<div class=\"m-rounded\">#{topic.capitalize} <span class=\"m-sup\">#{articles.size}</span></div>", current_page, :class => "hideunder", :fragment => "#{topic}" %>
+  <% end %>
+</div>
+
+<% topics.each do |tag, articles| %>
+  <h2 id="<%= "#{tag}" %>"><%= link_to "#{tag.capitalize}", category_path(tag), :class=>"tag-list-title" %></h2>
+<div class="ml2">
+  <ul class="tag-list">
+    <% articles.each do |article| %>
+      <li>
+        <span class="bullet"></span>
+        <span class="text sit-header"><%= link_to article.title, article %></span>
+        <span class="date p-m small"><%= article.date.strftime('%B %d, %Y') %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
