@@ -1,0 +1,11 @@
+.burma-shave {
+  text-decoration: none;
+  border-bottom: 1px dashed #444;
+  position: relative; }
+  .burma-shave:hover:after {
+    content: " (vintage roadside ads)";
+    color: #000;
+    position: absolute;
+    white-space: nowrap;
+    left: 0;
+    bottom: -1.5em; }
