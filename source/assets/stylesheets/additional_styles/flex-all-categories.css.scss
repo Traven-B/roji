@@ -14,12 +14,14 @@
   margin: 0;
   /* specifying font-size: here hurts, not helps */
   line-height: 1.2em;
+  margin-top: 1.00rem; // a fix xxxxxx
 
 }
 
 .tag-list li {
   display: flex;
   margin-top: 0.25rem;
+  align-items: baseline; // a fix xxxxxx , Critical for text alignment
 }
 
 .tag-list .bullet {
