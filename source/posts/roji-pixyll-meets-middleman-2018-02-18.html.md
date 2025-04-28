@@ -15,7 +15,7 @@ so if we dont do that trick, remove the stylesheet
 
 Preserving minimalism, embracing Middleman.
 
-> The HTML way is to view the second form with beginner's&nbsp;mind -  
+> The HTML way is to view the second form with first&nbsp;heart -  
 > for then how could pixels be&nbsp;misaligned?  
 >
 > They simply are, as stones in a raked&nbsp;garden  
