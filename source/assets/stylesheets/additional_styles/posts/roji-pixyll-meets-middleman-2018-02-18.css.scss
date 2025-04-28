@@ -1,0 +1,23 @@
+// stylesheet: additional_styles/posts/roji-pixyll-meets-middleman-2018-02-18
+
+// this style sheet only defines one class
+//     .burma-shave
+// so if we dont do that trick in the post, remove the stylesheet
+
+@charset "utf-8";
+
+// @import '../../_sass/_variables.scss';
+
+.burma-shave {
+  text-decoration: none;
+  border-bottom: 1px dashed #444;
+  position: relative;
+  &:hover:after {
+    content: " (vintage roadside ads)";
+    color: #000; 
+    position: absolute;
+    white-space: nowrap;
+    left: 0;
+    bottom: -1.5em;
+  }
+}
