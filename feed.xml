@@ -14,17 +14,11 @@
     <link rel="alternate" href="http://blog.url.com/blog/2018-02-18-roji-pixyll-meets-middleman.html"/>
     <id>http://blog.url.com/blog/2018-02-18-roji-pixyll-meets-middleman.html</id>
     <published>2018-02-18T19:10:00-06:00</published>
-    <updated>2025-04-28T17:11:01-05:00</updated>
+    <updated>2025-05-01T21:19:13-05:00</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;!--
-the campanion style sheet only defines one class
-    .burma-shave
-so if we dont do that trick, remove the stylesheet
---&gt;
-
-&lt;p&gt;Preserving minimalism, embracing Middleman.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Preserving minimalism, embracing Middleman.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;The HTML way is to view the second form with first heart -&lt;br /&gt;
@@ -36,17 +30,42 @@ for then how could pixels be misaligned?&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;A monk built an additional page in Pixyll's style -&lt;br /&gt;
-apprentice-bound to table layout.&lt;br /&gt;
-He rebuilt it with flex and semantic lists -&lt;br /&gt;
-identical to all eyes but his own.&lt;/p&gt;
+&lt;div class="custom-quote"&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;"The span that speaks its purpose&lt;br /&gt;
+is no span at all."&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/div&gt;
 
-  &lt;p&gt;"You broke our vow of pixel perfection!" cried his shadow.&lt;br /&gt;
-"I left that apprenticeship at the riverbank," replied the monk.&lt;br /&gt;
-"Why do you still weigh its ghosts?"&lt;/p&gt;
-  &lt;footer&gt;Roji&lt;/footer&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;A monk built an additional page in Pixyll's style -&lt;br /&gt;
+apprentice-bound to table layout.&lt;br /&gt;
+He rebuilt it with lists and silent spans -&lt;br /&gt;
+identical to all eyes but his own.&lt;/p&gt;
+
+&lt;p&gt;"You broke our vow of pixel perfection!" cried his shadow.&lt;br /&gt;
+"I left that apprenticeship at the riverbank," replied the monk.&lt;br /&gt;
+"Why do you still weigh its ghosts?"&lt;/p&gt;
+
+&lt;p&gt;The master shouts ::marker&lt;br /&gt;
+The monk points to his ::before.&lt;br /&gt;
+The master mutters: "Scoundrel… the way is straight!"&lt;br /&gt;
+The monk mutters: "Scoundrel, scoundrel, scoundrel"&lt;/p&gt;
+
+&lt;p&gt;When the silent span becomes no span,&lt;br /&gt;
+the arrow finds its own way&lt;/p&gt;
+
+&lt;p&gt;"Spam spans! Spam spans! Spam spans!"&lt;br /&gt;
+The monk burns the spans -&lt;br /&gt;
+anchor and time.&lt;/p&gt;
+
+&lt;div class="custom-quote"&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;The &amp;lt;li&amp;gt; wears two robes:&lt;br /&gt;
+list-item by birth,&lt;br /&gt;
+flex-container when awakened!&lt;/p&gt;
+    &lt;footer&gt;Roji&lt;/footer&gt;
+  &lt;/blockquote&gt;
+&lt;/div&gt;
 
 &lt;hr /&gt;
 
