@@ -7,12 +7,6 @@ stylesheet: additional_styles/posts/roji-pixyll-meets-middleman-2018-02-18
 summary: Preserving minimalism, embracing Middleman.
 ---
 
-<!--
-the campanion style sheet only defines one class
-    .burma-shave
-so if we dont do that trick, remove the stylesheet
--->
-
 Preserving minimalism, embracing Middleman.
 
 > The HTML way is to view the second form with first&nbsp;heart -  
@@ -23,15 +17,38 @@ Preserving minimalism, embracing Middleman.
 
 ---
 
-> A monk built an additional page in Pixyll's&nbsp;style -  
-> apprentice-bound to table&nbsp;layout.  
-> He rebuilt it with flex and semantic&nbsp;lists -  
-> identical to all eyes but his&nbsp;own.  
->
-> "You broke our vow of pixel perfection!" cried his&nbsp;shadow.  
-> "I left that apprenticeship at the riverbank," replied&nbsp;the&nbsp;monk.  
-> "Why do you still weigh its&nbsp;ghosts?"  
+<div class="custom-quote" markdown=1>
+> "The span that speaks its purpose  
+is no span at all."
+</div>
+
+A monk built an additional page in Pixyll's style -  
+apprentice-bound to table layout.  
+He rebuilt it with lists and silent spans -  
+identical to all eyes but his own.  
+
+"You broke our vow of pixel perfection!" cried his shadow.  
+"I left that apprenticeship at the riverbank," replied the monk.  
+"Why do you still weigh its ghosts?"  
+
+The master shouts ::marker  
+The monk points to his ::before.  
+The master mutters: "Scoundrel… the way is straight!"  
+The monk mutters: "Scoundrel, scoundrel, scoundrel"  
+
+When the silent span becomes no span,  
+the arrow finds its own way  
+
+"Spam spans! Spam spans! Spam spans!"  
+The monk burns the spans -  
+anchor and time.  
+
+<div class="custom-quote" markdown=1>
+> The <li> wears two robes:  
+list-item by birth,  
+flex-container when awakened!
 > <footer>Roji</footer>
+</div>
 
 ---
 

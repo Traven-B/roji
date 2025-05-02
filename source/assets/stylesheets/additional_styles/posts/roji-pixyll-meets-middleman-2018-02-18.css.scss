@@ -1,9 +1,5 @@
 // stylesheet: additional_styles/posts/roji-pixyll-meets-middleman-2018-02-18
 
-// this style sheet only defines one class
-//     .burma-shave
-// so if we dont do that trick in the post, remove the stylesheet
-
 @charset "utf-8";
 
 // @import '../../_sass/_variables.scss';
@@ -20,4 +16,22 @@
     left: 0;
     bottom: -1.5em;
   }
+}
+
+.custom-quote blockquote {
+  margin: 1rem 0;      /* Reduced vertical spacing */
+  padding: 0.0rem 1rem;
+  margin-left: 1.5rem;
+  margin-left: 2.0rem;
+
+  border-left: 4px solid #20c20e;
+  background-color: #f8f8f8;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Optional: further customize paragraphs inside */
+.custom-quote blockquote p {
+  margin: 0.5rem 0;
+  font-size: 1.05rem;
 }
