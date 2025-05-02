@@ -1,0 +1,23 @@
+<%# topics = pre-defined before partial call %>
+<div class="ml2">
+  <% topics.sort_by{|topic, articles| topic.downcase }.each do |topic, articles| %>
+    <%= link_to "<div class=\"m-rounded\">#{topic.capitalize} <span class=\"m-sup\">#{articles.size}</span></div>", 
+      current_page, 
+      :class => "hideunder", 
+      :fragment => "#{topic}" %>
+  <% end %>
+</div>
+
+<% topics.each do |topic, articles| %>
+  <h2 id="<%= topic %>">
+    <%= link_to topic.capitalize, path_helper.call(topic), :class=>"ttag-title" %>
+  </h2>
+  <ul class="ttag-list ttag-list-ml2">
+    <% articles.each do |article| %>
+      <li>
+        <%= link_to article.title, article %>
+        <time datetime="<%= article.date.iso8601 %>"><%= article.date.strftime('%B %d, %Y') %></time>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

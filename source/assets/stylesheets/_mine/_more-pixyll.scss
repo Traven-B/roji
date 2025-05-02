@@ -152,112 +152,6 @@ img.right {
   font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", serif;
 }
 
-// use thin or thick header sans serif font
-//   this looks UNUSED ending with an underscore
-.sit-header_ a {
-  color: #333;
-  background-image: none;
-  font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1.25rem;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  margin-bottom: 0;
-  font-weight: 300;
-}
-
-.sit-header a {
-  color: #333;
-  background-image: none;
-}
-
-/* what's all this, got rid of bingo so .sit-header may replace it
-   but this is very sass generated from my recover ?
-   here's from four37 more.css */
-// .sit-header  a:hover,
-// .sit-header  a:focus,
-// .sit-header  a:active {
-//   opacity: 0.78;
-// }
-
-.sit-header a .sit-header a:hover,
-.sit-header a .sit-header a:focus,
-.sit-header a .sit-header a:active {
-  opacity: 0.78;
-}
-
-table.ellipsis {
-  display: table;
-  font-size: 1rem;
-  width: 100%;
-  table-layout: fixed;
-  border-spacing: 0;
-  line-height: 1.5rem;
-  padding: 0;
-  margin: 0;
-}
-
-table.ellipsis tr {
-  padding: 0;
-  margin: 0;
-}
-
-table.ellipsis td {
-  white-space: normal;
-  vertical-align: bottom;
-  padding: 0;
-  margin: 0;
-  border-top: none;
-}
-
-table.ellipsis td:first-child {
-  width: 1px;
-  vertical-align: top;
-  padding-right: 0.7rem;
-}
-
-table.ellipsis td:nth-child(2) {
-  border-bottom: 1px dashed #ccc;
-  width: 95%;
-}
-
-table.ellipsis td:last-child {
-  border-bottom: 1px dashed #ccc;
-  width: 5%;
-}
-
-table.ellipsis tr:last-child td {
-  border: none;
-}
-
-table.ellipsis tr::before {
-  content: "• ";
-  color: #0076df;
-}
-
-@media screen and (min-width: 48em) {
-  table.ellipsis td {
-    white-space: nowrap;
-  }
-
-  table.ellipsis td:nth-child(2) {
-    width: 75%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  table.ellipsis td:last-child {
-    width: 25%;
-  }
-}
-
-.p-m {
-  width: auto;
-  font-weight: 300;
-  margin: 0;
-  color: #7a7a7a;
-  font-style: italic;
-}
-
 // 3-5 because space-3 is 2rem space-4 is 4rem
 .mnt3-5 {
   margin-top: -3rem;
@@ -320,16 +214,6 @@ em.hp {
   background-image: none;
 }
 
-.entry-date {
-  display: none;
-}
-
-@media screen and (min-width: 48em) {
-  .entry-date {
-    display: inline;
-  }
-}
-
 /* these apply to favicons */
 .category-tags-icons-left,
 .category-tags-icons-right {
@@ -340,17 +224,6 @@ em.hp {
 .category-tags-icons {
   padding: 0.5em 0 0 0;
   color: #7a7a7a;
-}
-
-/* start of my changes */
-a.tag-list-title {
-  color: #333;
-  text-decoration: none;
-  background-image: none;
-}
-
-a.tag-list-title:hover {
-  opacity: 0.88;
 }
 
 .post-summary h1,

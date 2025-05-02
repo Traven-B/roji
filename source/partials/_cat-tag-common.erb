@@ -1,0 +1,47 @@
+<% if paginate && num_pages > 1 %>
+  <p>Page <%= page_number %> of <%= num_pages %></p>
+  <!--
+    <% if prev_page %>
+      <p><%= link_to 'Previous page', prev_page %></p>
+    <% end %>
+  -->
+<% end %>
+
+<ul class="ttag-list">
+  <% page_articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article %>
+      <time datetime="<%= article.date.iso8601 %>"><%= article.date.strftime('%B %d, %Y') %></time>
+    </li>
+  <% end %>
+</ul>
+
+<!--
+  <% if paginate %>
+    <% if next_page %>
+      <p><%= link_to 'Next page', next_page %></p>
+    <% end %>
+  <% end %>
+-->
+
+<div class="mnt3-5">
+  <%= partial 'partials/pagination', :locals =>{paginate: paginate, prev_page: prev_page, next_page: next_page} %>
+</div>
+
+<div class="home">
+  <div class="posts">
+    <% page_articles.each do |article| %>
+      <div class="post py3">
+        <%# within .posts there is a .post %>
+        <p class="post-meta"> <%=article.date.strftime('%b %e, %Y')%> </p>
+        <!-- %= link_to "<h3   class=\"h1 post-title\"  >#{article.title}</h3>", article, :class=>"post-link" % -->
+        <% link_to  article, :class=>"post-link" do %><%= "<h3 class=\"h1 post-title\">#{article.title}</h3>" %><% end %>
+        <div class="post-summary">
+          <%= article.summary() %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= partial 'partials/pagination', :locals =>{paginate: paginate, prev_page: prev_page, next_page: next_page} %>
+</div>

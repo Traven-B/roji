@@ -3,27 +3,10 @@ layout: page
 title: Tag Index
 footer_art: search
 ---
-<!--
-https://stackoverflow.com/questions/5306640/how-to-set-bullet-colors-in-ul-li-html-lists-via-css-without-using-any-images-or
--->
+<% topics = blog.tags %>  <!-- Use same variable name as categories -->
 
-<div class="ml2">
-  <% blog.tags.sort_by{|tag, articles| tag.downcase }.each do |tag, articles| %>
-   <%= link_to "<div class=\"m-rounded\">#{tag.capitalize} <span class=\"m-sup\">#{articles.size}</span></div>", current_page, :class => "hideunder", :fragment => "#{tag}" %>
-  <% end %>
-</div>
-
-<% blog.tags.each do |tag, articles| %>
-  <h2 id="<%= "#{tag}" %>"><%= link_to "#{tag.capitalize}", tag_path(tag), :class=>"tag-list-title" %></h2>
-<div class="ml2">
-  <table class="ellipsis">
-    <% articles.each do |article| %> 
-      <tr>
-        <td></td>
-        <td><span class="sit-header"><%= link_to article.title, article %></span></td>
-        <td style="vertical-align: bottom;" align="right" class="small"><span class="p-m right entry-date "><%= article.date.strftime('%B %d, %Y') %></span></td>
-      </tr>
-    <% end %>
-  </table>
-</div>
-<% end %>
+<%= partial 'partials/all-topics',
+  locals: {
+  topics: topics,
+  path_helper: ->(t) { tag_path(t) }  # Tag-specific path helper
+} %>

@@ -1,0 +1,97 @@
+a.ttag-title {
+  color: #333;
+  text-decoration: none;
+  background-image: none;
+}
+
+a.ttag-title:hover {
+  opacity: 0.88;
+}
+
+.ttag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1.2rem; // units rem better than no unit
+  margin-top: 1.00rem; // a fix xxxxxx
+}
+
+.ttag-list-ml2 {
+  margin-left: $space-2; }
+
+.ttag-list li {
+  &::before { // New bullet pseudo-element
+    content: "\2022";
+    color: #0076df;
+    font-size: 1.25rem;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+    display: inline-flex; // Better metric control
+    align-self: flex-start;
+    position: relative;
+    top: -1.0px; // Nudge as needed
+  }
+
+  &:last-child a,
+  &:last-child time {
+    border: none;
+  }
+
+  display: flex;
+  align-items: baseline; // a fix xxxxxx, Critical for text alignment
+  margin-top: 0.25rem;
+  // gap: 0; // Remove if using explicit margins
+}
+
+.ttag-list li::before {
+  position: relative;
+  top: -1.0px; // Nudge as needed
+}
+
+.ttag-list a {
+  border-bottom: 1px dashed #ccc;
+  width: 95%;
+}
+
+.ttag-list time {
+  border-bottom: 1px dashed #ccc;
+  width: 5%;
+}
+
+.ttag-list a {
+  color: #333;
+  background-image: none;
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+.ttag-list a {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: normal; /* Allow text wrapping on narrow screens */
+  text-overflow: unset; /* Remove ellipsis on narrow screens */
+}
+
+.ttag-list time {
+  display: none; /* Hide the date by default on mobile */
+}
+
+@media (min-width: 48em) {
+
+  .ttag-list time {
+    display: block; /* Show the date on larger screens */
+    color: #7a7a7a;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 0.926rem;
+    width: 25%;
+    width: 32%;
+    text-align: right;
+  }
+
+  .ttag-list a {
+    white-space: nowrap; /* Prevent text wrapping on larger screens */
+    Wwidth: auto;
+    text-overflow: ellipsis; /* Add ellipsis for truncated text */
+  }
+}
