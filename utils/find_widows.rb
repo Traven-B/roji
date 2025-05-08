@@ -56,25 +56,23 @@ end.map { |filename| filename.split(".").first }
 orphaned_img_directories = img_directories.select do |img_directory|
   !post_files.include? img_directory
 end
-if options[:always_report] && orphaned_img_directories.size == 0
+
+if orphaned_img_directories.any?
+  puts "widowed image directories are:"
+  orphaned_img_directories.each { |directory| puts directory.bold }
+elsif options[:always_report]
   puts "no widowed image directories found"
-else
-  puts "widowed image directories are:" if orphaned_img_directories.size != 0
-  orphaned_img_directories.each do |directory|
-    puts directory.bold
-  end
 end
 
-orphanded_style_files = style_files.select do |a_style_file|
+orphaned_style_files = style_files.select do |a_style_file|
   !post_files.include? a_style_file
 end
-if options[:always_report] && orphanded_style_files.size == 0
+
+if orphaned_style_files.any?
+  puts "widowed style files are:"
+  orphaned_style_files.each { |style_file| puts style_file.bold }
+elsif options[:always_report]
   puts "no widowed style files found"
-else
-  puts "widowed style files are:" if orphanded_style_files.size != 0
-  orphanded_style_files.each do |a_style_file|
-    puts a_style_file.bold
-  end
 end
 
 orphaned_data_directories = data_directories.select do |data_directory|
@@ -85,11 +83,10 @@ orphaned_data_directories = data_directories.select do |data_directory|
   # Data file(s) will have underscores as well.
   !post_files.include? data_directory.gsub(/^_/, "").gsub("_", "-")
 end
-if options[:always_report] && orphaned_data_directories.size == 0
+
+if orphaned_data_directories.any?
+  puts "widowed DATA directories are:"
+  orphaned_data_directories.each { |directory| puts directory.bold }
+elsif options[:always_report]
   puts "no widowed DATA directories found"
-else
-  puts "widowed DATA directories are:" if orphaned_data_directories.size != 0
-  orphaned_data_directories.each do |directory|
-    puts directory.bold
-  end
 end
