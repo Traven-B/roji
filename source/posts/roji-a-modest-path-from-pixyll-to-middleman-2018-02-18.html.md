@@ -1,10 +1,10 @@
 ---
-title: "Roji: Pixyll meets Middleman"
+title: "Roji: a modest path from Pixyll to Middleman"
 date: 2018-02-18 20:10 CDT
-category: roji
-tags: roji
-stylesheet: additional_styles/posts/roji-pixyll-meets-middleman-2018-02-18
+category: test
+tags: test
 summary: Preserving minimalism, embracing Middleman.
+stylesheet: additional_styles/posts/roji-a-modest-path-from-pixyll-to-middleman-2018-02-18
 ---
 
 Preserving minimalism, embracing Middleman.
