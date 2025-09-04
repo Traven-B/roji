@@ -3,34 +3,54 @@
 DESC = <<EOS
 
 Program to make an image directory associated with a post.
+Reads given file or standard input.
 
-Program reads given file or standard input.
+- First line: filename of post (with/without extension). The program strips 
+  extensions and creates the directory images/posts/[filename]/. Reuses 
+  existing directory if present.
 
-Given text whose first line is the filename of a post with or without
-extensions, removes the extensions, creates an image directory named after the
-filename string in the images/posts/ directory.
+- Second line: markdown image template line containing ![]().
+  This line can contain one or more '--id--' substrings which become the base 
+  name (no extension) of the images. This line is expanded for each image and
+  written to standard output.
 
-The second line is a markdown image template line, a line containing ![](), the
-program placese inside the parentheses the relative path and filename of
-subsequently specified image names.
+- Third and following lines: URLs or local file paths of images.
+  May be followed by comma-separated values for name and extension, e.g.:
+    http://example.com/img.jpg[suffix]
+  where suffix can be:
+    empty                 (default name: 'image', extension: 'jpg')
+    ,name                 (basename only, no extension)
+    ,name,extension       (basename and extension, as in ',photo,png')
+    ,,extension           (extension only, as in ',,png')
 
-The second line can contain 1 or more '--id--' substrings which become the
-base name (without extension) of the image.
+Examples:
+  http://site.com/kitty.jpg              saves as image.jpg
+  http://site.com/kitty-cat.jpg          saves as image-2.jpg
+  http://site.com/kitty.jpg,cat          saves as cat.jpg
+  http://site.com/kitty.jpg,cat,jpeg     saves as cat-2.jpeg
+  http://site.com/kitty.png,,png         saves as image-3.png
+  ../../hold/an-image/selfie.jpg,selfie  saves as selfie.jpg
 
-Treat 3rd and following lines as URLs of images or local file paths, that may
-have comma-separated values as a suffix, http://example.com/path/image-name.jpg[suffix],
-where suffix is:
-        empty
-    or ,name
-    or ,name,extension
-    or ,,extension
+Important:
+- The image "name" refers to the base filename only (no extension).
 
-name defaults to 'image', and extension defaults to 'jpg', producing 'image.jpg',
-'image-2.jpg', etc. for the computed file names. The directory contents are checked
-for name collisions each time we are writing a next image.
+- Extensions default to 'jpg' unless explicitly specified. If you download
+  a .png file, you have to specify the png extension.
 
-For local file paths, provide either relative paths (e.g., ../../hold_images/image.jpg)
-or absolute paths (e.g., /home/user/images/image.jpg).\
+- Repeating the same name across input lines is allowed; the program numbers
+duplicates sequentially with suffixes like -2, -3, etc.
+
+- Using sets of different names is also supported.
+
+- The example input lines could be provided all in one run or across multiple
+program invocations.
+
+Note:
+If you are working with a non-Markdown templating system (e.g., ERB), you can
+still use this program to download images and create the directory by using the
+simple 2nd input line placeholder ![](). You can redirect or discard the output
+if you don't need it (do_images.rb input.txt > /dev/null). The images will be
+downloaded and stored correctly.\
 
 EOS
 
