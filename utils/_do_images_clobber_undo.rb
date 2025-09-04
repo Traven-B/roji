@@ -10,9 +10,9 @@ Given text whose first line is the filename of a post with or without
 extensions, removes the extensions, creates an image directory named after the
 filename string in the images/posts/ directory.
 
-The second line is a markdown image template line, a line containing
-![](maybe_some_text), change what's inside the parentheses to the relative path
-and filename of subsequently specified image names.
+The second line is a markdown image template line, a line containing ![](), the
+program placese inside the parentheses the relative path and filename of
+subsequently specified image names.
 
 The second line can contain 1 or more '--id--' substrings which become the
 base name (without extension) of the image.
