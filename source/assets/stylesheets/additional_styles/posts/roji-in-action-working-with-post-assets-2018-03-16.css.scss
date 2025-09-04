@@ -1,0 +1,32 @@
+// stylesheet: additional_styles/posts/roji-in-action-working-with-post-assets-2018-03-16
+
+@charset "utf-8";
+
+@import '../../_sass/_variables.scss';
+
+/* Workflow Guide Menu */
+.workflow-menu {
+  margin-bottom: 1.5rem;
+  padding: 0;
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.workflow-menu li {
+  margin-bottom: 0.5rem;
+}
+
+.workflow-menu a {
+  text-decoration: none;
+  color: #2a7ae2; /* subtle blue link color */
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.workflow-menu a:hover,
+.workflow-menu a:focus {
+  border-bottom-color: #2a7ae2;
+  outline: none;
+}
+

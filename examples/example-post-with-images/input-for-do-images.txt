@@ -1,0 +1,4 @@
+example-with-styled-images-2025-08-28.html.md
+[_![](){: .right .mb1 .mhnn #--id--}_](#--id--)
+../../examples/example-post-with-images/source-images/source-one.jpg,dorthy-toto
+../../examples/example-post-with-images/source-images/source-two.jpg,dorthy-toto

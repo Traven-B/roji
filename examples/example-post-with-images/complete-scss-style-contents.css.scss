@@ -1,0 +1,21 @@
+// stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28
+
+@charset "utf-8";
+
+@import '../../_sass/_variables.scss';
+
+// append the following lines / css rules to the file with the abouve contents
+// it location is
+//       assets/stylesheets/additional_styles/posts/example-with-styled-images-2025-08-28.css.scss
+// keep the first line comment, it will be copied to the page meta data as a property.
+
+.mhnn {
+    max-height: 25rem;
+    scroll-margin-top: 4rem;
+}
+
+@media screen and (min-width: $viewport-small) {
+    .mhnn {
+        max-height: 17rem;
+    }
+}
