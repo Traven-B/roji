@@ -23,7 +23,7 @@
 
 ############
 ## make sure you RENAME THE POST FILE BY APPENDING .erb to the file name if you
-## haven't alread.
+## haven't already.
 ############
 
 <% elements = data.posts.xxxDIRNAME_HERExxx.a %>
