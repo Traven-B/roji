@@ -5,16 +5,439 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2018-02-18T19:10:00-06:00</updated>
+  <updated>2018-03-16T06:25:00-05:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
   <entry>
     <title>Roji: Pixyll meets Middleman</title>
-    <link rel="alternate" href="http://blog.url.com/blog/2018-02-18-roji-pixyll-meets-middleman.html"/>
-    <id>http://blog.url.com/blog/2018-02-18-roji-pixyll-meets-middleman.html</id>
+    <link rel="alternate" href="http://blog.url.com/blog/2018-03-16-roji-pixyll-meets-middleman.html"/>
+    <id>http://blog.url.com/blog/2018-03-16-roji-pixyll-meets-middleman.html</id>
+    <published>2018-03-16T06:25:00-05:00</published>
+    <updated>2025-09-03T22:37:04-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Roji is a respectful port of the Pixyll theme to the Middleman static site
+generator. The original Liquid templates were replicated and rewritten for
+Middleman's Embedded Ruby (ERB) language. Additional templates for categories
+and tags were also created, which show how much effort goes into a
+well-designed minimalist theme without adding unnecessary complexity. This was
+a personal learning project, focused on using Middleman's flexibility to create
+a straightforward blogging workflow. The goal was to honor the original theme
+"crafted with &amp;lt;3" by John Otander.&lt;/p&gt;
+
+&lt;p&gt;Roji uses per-post directories and files to keep images, data, and stylesheets
+organized and self-contained by using naming conventions linking an asset to a
+post.&lt;/p&gt;
+
+&lt;p&gt;Images and YAML data files live in parallel directories named after the post's
+filename inside images/posts/ and data/posts/. A single additional stylesheet
+for each post is named after the post’s filename and placed in a designated
+stylesheets directory for posts.&lt;/p&gt;
+
+&lt;p&gt;Small automation scripts help scaffold stylesheets, organize images, and audit
+orphaned post-level assets like widowed data or image directories and
+stylesheets, simplifying blogging workflows.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Data-Driven Content:&lt;/strong&gt; Posts use Embedded Ruby (ERB) templates to pull structured data from YAML files and place it within markdown or HTML. A rake task does the necessary setup for post-associated data, including sample data and code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Page-Specific Styling:&lt;/strong&gt; Each post can have a unique stylesheet compiled separately from the main CSS bundle. A rake task creates a correctly named stub &lt;code&gt;.css.scss&lt;/code&gt; file. The stub has an SCSS comment to be pasted into the front matter of the associated post as its 'stylesheet:' page data property, and it imports Pixyll's _&lt;code&gt;variables.scss&lt;/code&gt; file.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Image Management:&lt;/strong&gt; One flexible helper script manages post images by
+creating or using a directory named after the post, checking existing files
+to avoid collisions, and allowing image name specification. It generates
+markdown lines for image inclusion, optionally with kramdown attributes for CSS
+classes and IDs. It fetches images from both the internet and local files, and
+can be run multiple times to add images to a directory.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Because Middleman includes built-in Sass processing, additional stylesheets can
+be organized in a limited sub-hierarchy under assets/stylesheets/, with
+directories like additional_styles/ and additional_styles/posts/. This approach
+keeps the Pixyll theme clean and uncluttered while enabling page- or
+post-specific stylesheets clearly named for association.&lt;/p&gt;
+
+&lt;p&gt;Thanks to kramdown’s flexibility, CSS classes can be associated with markdown
+block and span level elements, and markdown can be used within HTML tags,
+enhancing styling and content control.&lt;/p&gt;
+
+&lt;p&gt;For detailed setup and examples, see the &lt;a href="2018-03-16-roji-in-action-working-with-post-assets.html"&gt;Roji in Action guide&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <title>Roji in action: working with post assets</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2018-03-16-roji-in-action-working-with-post-assets.html"/>
+    <id>http://blog.url.com/blog/2018-03-16-roji-in-action-working-with-post-assets.html</id>
+    <published>2018-03-16T04:25:00-05:00</published>
+    <updated>2025-09-03T21:58:33-05:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;h2&gt;Workflows in this Guide&lt;/h2&gt;
+
+&lt;ul class="workflow-menu"&gt;
+  &lt;li&gt;&lt;a href="#image-flow"&gt;Workflow 1: How to Add Styled Images to Your Post&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#data-flow"&gt;Workflow 2: How to Use Data-Driven Content in Your Posts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#appendix"&gt;Appendix: Cleaning Up Post Assets with find_widows&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This guide walks through &lt;strong&gt;two typical post workflows&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Images + Stylesheets&lt;/strong&gt; – fetching images into a per‑post directory, and creating a page‑scoped stylesheet.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Post Data&lt;/strong&gt; – generating a sample data file with a rake task, and ERB code that injects the YAML data as markdown text.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Each workflow illustrates how Roji adopts per-post asset directories to keep content structured, self-contained, and easy to manage.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 0:&lt;/strong&gt; At the moment we need the micro-optparse gem installed, globally.
+Check for its presence with &lt;code&gt;gem list micro-optparse&lt;/code&gt;. Install the gem via
+&lt;code&gt;gem install micro-optparse&lt;/code&gt;, it's quite tiny.&lt;/p&gt;
+
+&lt;h1 id="image-flow"&gt;How to Add Styled Images to Your Post&lt;/h1&gt;
+
+&lt;p&gt;This guide walks you through the exact steps to add styled images to your blog post using the example files and scripts.&lt;/p&gt;
+
+&lt;h2&gt;Step 1: Prepare Your Post Markdown&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Copy an already example post markdown file to your source/posts/
+directory.  Navigate to the source/posts directory and do&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;cp ../../examples/example-post-with-images/example-with-styled-images-2025-08-28.html.md .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;p&gt;&lt;strong&gt;Note the trailing dot&lt;/strong&gt; indicating the current directory.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;This file contains YAML front matter and just enough lorem text to float some images around.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Step 2: Generate Image Markdown Lines&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run the image processing script &lt;strong&gt;from the &lt;code&gt;source/posts&lt;/code&gt; directory&lt;/strong&gt;,
+supplying the relative path to the example input file.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;../../utils/do_images.rb ../../examples/example-post-with-images/input-for-do-images.txt &amp;gt; /tmp/mk_lines.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Compare &lt;code&gt;input-for-do-images.txt&lt;/code&gt; with the output of &lt;code&gt;do_images.rb --help&lt;/code&gt;. The
+second markdown pattern line can be as simple as &lt;code&gt;![]()&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The script copies source images into your post's image directory with unique
+names and generates markdown lines linking to those images.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Review the Markdown lines saved in &lt;code&gt;/tmp/mk_lines.txt&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Step 3: Add Generated Markdown to Your Post&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Edit the post markdown file in &lt;code&gt;source/posts&lt;/code&gt; and insert the image markdown
+lines from &lt;code&gt;/tmp/mk_lines.txt&lt;/code&gt; at the positions you want the images to
+appear. In the following code snippet, the lines to add are pointed to with
+'»' chars.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;   ## The Ancient Period
+
+&amp;gt;&amp;gt; [_![](posts/example-with-styled-images-2025-08-28/dorthy-toto.jpg){: .right .mb1 .mhnn #dorthy-toto}_](#dorthy-toto)
+   From the fourth to the ninth century, Chinese culture strongly influenced the
+   .
+   .
+   .
+   from official inspectors.
+
+&amp;gt;&amp;gt; [_![](posts/example-with-styled-images-2025-08-28/dorthy-toto-2.jpg){: .left .mb1 .mhnn #dorthy-toto-2}_](#dorthy-toto-2)
+   An increasing amount of land thus passed into true private holdings. Then, as
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Add the markdown for the images at the start of a paragraph in this case, no empty line between
+the added markdown and the paragraph text.&lt;/p&gt;
+
+    &lt;p&gt;Add above the lines starting with &lt;code&gt;From the fourth&lt;/code&gt; and &lt;code&gt;An increasing amount&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Edit the second image's markdown to have class &lt;code&gt;.left&lt;/code&gt; instead of &lt;code&gt;.right&lt;/code&gt;, to &lt;em&gt;&lt;strong&gt;float&lt;/strong&gt; the second
+image to the &lt;strong&gt;left&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Save the file. You can &lt;code&gt;bundle middleman build&lt;/code&gt; at this time. Should look
+OK. Usually we would add one image, then style it to see how much vertical
+space it takes. In this case both images without additional styling look OK.
+Try narrowing the view width of the browser.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Step 4: Update the Stylesheet&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run the rake task to generate the stylesheet: (easiest when still in source/posts directory, as
+you can do filename completion for the file name.)&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;rake make_extra_css example-with-styled-images-2025-08-28.html.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;This will create an  SCSS file at:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;../assets/stylesheets/additional_styles/posts/example-with-styled-images-2025-08-28.css.scss
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;We now have an image directory and a .css.scss file both named after the
+blog post. When/if we delete the blog post, we have a rake task that finds the
+widowed file and directory and reminds you they exist.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Edit the stylesheet file to append the example CSS rules (copy from
+&lt;code&gt;examples/complete-scss-style-contents.css.scss&lt;/code&gt;).&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;// stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28
+
+@charset "utf-8";
+
+@import '../../_sass/_variables.scss';
+
+// Append the following lines / css rules to the file with the above contents.
+// Its location is
+//     assets/stylesheets/additional_styles/posts/example-with-styled-images-2025-08-28.css.scss
+// Keep the first line comment, // stylesheet: ...
+// It will be copied to the page meta data as a property.
+
+.mhnn {
+    max-height: 25rem;
+    scroll-margin-top: 4rem;
+}
+
+@media screen and (min-width: $viewport-small) {
+    .mhnn {
+        max-height: 17rem;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;So one thing we've done is to make available sass variables, you can see &lt;code&gt;$viewport-small&lt;/code&gt; being
+used in the media query. The &lt;code&gt;.mhnn&lt;/code&gt; class was already named in the markdown image lines we
+generated. Not implausible, we could anticipate needing a style class, and choose a generic name.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Copy the special comment line at the top of the stylesheet file (i.e., &lt;code&gt;//
+stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28&lt;/code&gt;) and
+paste it into the post's YAML front matter as the &lt;code&gt;stylesheet:&lt;/code&gt; property.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;   ---
+   title: Example with styled images
+   date: 2025-08-28 21:52 CDT
+   category: test
+   tags: test
+&amp;gt;&amp;gt; stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28
+   ---
+
+   The question of Jimmu's existence is a subject outside the scope of this book,
+   but it is interesting to note that in paintings and descriptions of his life,
+   Jimmu is always depicted with a long bow and arrows.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Save the stylesheet and post markdown file.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Step 5: Build and Preview&lt;/h2&gt;
+
+&lt;p&gt;Run your build process (e.g., &lt;code&gt;middleman build&lt;/code&gt; or equivalent) and preview the
+post to see the styled images correctly rendered within your post.&lt;/p&gt;
+
+&lt;p&gt;Tip: After deleting this example post, run rake find_widows to identify any
+orphaned post assets that you'll remove manually. See &lt;a href="#appendix"&gt;Appendix: Cleaning Up&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="data-flow"&gt;How to Use Data-Driven Content in Your Posts&lt;/h1&gt;
+
+&lt;p&gt;This section covers generating a sample data file, that has boiler plate Embedded Ruby that you cut and past into an otherwise empty blog post. The blog post has final extension .erb , as in some-filename.html.md.erb.&lt;/p&gt;
+
+&lt;h2&gt;Step 1: Prepare Your Post Markdown&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Copy an already example post markdown file to your source/posts/
+directory.  Navigate to the source/posts directory and do&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;cp ../../examples/example-post-using-data/example-using-data-2025-08-28.html.md.erb .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;p&gt;&lt;strong&gt;Note the trailing dot&lt;/strong&gt; indicating the current directory.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;This file only contains YAML front matter.&lt;/p&gt;
+
+    &lt;p&gt;The actual content will come from the data file generated in the next step.
+Inside that data file, we will cut out the ERB/Markdown sample code block and
+paste it into this .html.md.erb post.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Step 2: Generate directory with example data and code&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run the rake task to generate the data: (easiest when still in source/posts directory, as
+you can do filename completion for the file name.)&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;rake use_data example-using-data-2025-08-28.html.md.erb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;This will create a YAML data file at:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;../../data/posts/example_using_data_2025_08_28/a.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;There could be more than one data file in the directory, but we have placed one.
+If you look at it, there is code at the end of it. We will cut that out next.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Step 3: Add generated erb code to the .md.erb file&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Edit both the data file &lt;code&gt;a.yml&lt;/code&gt; and the post file &lt;code&gt;example-using-data-2025-08-28.html.md.erb&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In &lt;code&gt;a.yml&lt;/code&gt; delete the comment block after the data and before the code.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cut the code from the data file, and paste it after the front matter of the post.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;- :name: Faye Wong
+  :img: https://spaceecho.chromewaves.net/wp-content/uploads/2021/05/chunkingexpress-868x488.jpeg
+  :movies:
+  - Chungking Express (1994)
+  - 2046 (2004)
+
+############
+## make sure you RENAME THE POST FILE BY APPENDING .erb to the file name if you
+## haven't already.
+############
+
+&amp;lt;% elements = data.posts.example_using_data_2025_08_28.a %&amp;gt;
+
+&amp;lt;%# The initial map/join incorporates the name values from the data into the page summary. %&amp;gt;
+
+&amp;lt;% current_page.data.summary = elements.map { |e| "### #{e[:name]}\n\n" }.join %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Save both files, the data file that has only data now, and the post that has the code
+cut from the data file and pasted in the body of the example post, after the front matter.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;If you lose the text you were editing&lt;/strong&gt;, the data and code boilerplate file is
+preserved at&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;../../utils/use_data_separate_boilerplate.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Step 4: Update the Stylesheet&lt;/h2&gt;
+
+&lt;p&gt;Additional stylesheet? We don't need no stinking additional styletheet!&lt;/p&gt;
+
+&lt;h2&gt;Step 5: Build and Preview&lt;/h2&gt;
+
+&lt;p&gt;Run your build process (e.g., &lt;code&gt;middleman build&lt;/code&gt; or equivalent) and preview the post.&lt;/p&gt;
+
+&lt;p&gt;Oh look, the internet says Maggie Cheung also was in the movie "2046". Duplicate
+that line in the &lt;code&gt;a.yml&lt;/code&gt; file put it the Maggie Cheung list of movies too. Run the build.&lt;/p&gt;
+
+&lt;p&gt;Tip: After deleting this example post, run rake find_widows to identify any
+orphaned post assets that you'll remove manually. See &lt;a href="#appendix"&gt;Appendix: Cleaning Up&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id="appendix"&gt;Appendix: Cleaning Up Post Assets with find_widows&lt;/h1&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Both workflows create assets named after your post:&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;p&gt;Workflow 1 adds a per‑post image directory and a stylesheet.&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;p&gt;Workflow 2 adds a per‑post data directory.&lt;/p&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;If you later delete a post, these supporting assets are left behind. To keep
+your project clean, Roji includes the find_widows task.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run the Audit&lt;/p&gt;
+
+    &lt;p&gt;Anywhere in the project hierarchy run&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;rake find_widows
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Sample clean result:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;no widowed image directories found
+no widowed style files found
+no widowed DATA directories found
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Sample result after deleting example-with-styled-images-2025-08-28.html.md:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;widowed image directories are:
+example-with-styled-images-2025-08-28
+widowed style files are:
+example-with-styled-images-2025-08-28
+no widowed DATA directories found
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Remove Orphaned Assets&lt;/p&gt;
+
+    &lt;p&gt;Delete the orphaned files and directories that no longer have a matching post:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;rm -rf source/assets/images/posts/example-with-styled-images-2025-08-28
+rm -f source/assets/stylesheets/additional_styles/posts/example-with-styled-images-2025-08-28.css.scss
+# if the  example-using-data-2025-08-28.html.md.erb was deleted
+# rm -rf data/posts/example_using_data_2025_08_28
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;That’s it - assets are now in sync with your posts.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Notes on Data Directories&lt;/p&gt;
+
+    &lt;p&gt;Workflow 2 uses underscores (_) instead of hyphens (-) when creating the data/posts/ directory.&lt;/p&gt;
+
+    &lt;p&gt;This is required because Middleman treats entries in data/ as methods:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;&amp;lt;% elements = data.posts.example_using_data_2025_08_28.a %&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;p&gt;Hyphens (-) would break this.&lt;/p&gt;
+
+    &lt;p&gt;If you remove a data‑driven post, remember to rm -rf its matching underscore‑named directory.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;When to Use&lt;/dt&gt;
+  &lt;dd&gt;
+    &lt;p&gt;Each time you delete a test or example post.&lt;/p&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;p&gt;Periodically, to tidy up experiments or drafts.&lt;/p&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;You’ll run through this often if you practice creating and removing posts — the steps become second nature: build, test, delete, clean with find_widows, repeat.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tip for safety&lt;/strong&gt;: Use ls + tab‑completion first, then arrow back to the beginning of the line and replace ls with rm or rm -rf. It’s a simple trick that avoids fat‑fingering the wrong filename.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Roji: a modest path from Pixyll to Middleman</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2018-02-18-roji-a-modest-path-from-pixyll-to-middleman.html"/>
+    <id>http://blog.url.com/blog/2018-02-18-roji-a-modest-path-from-pixyll-to-middleman.html</id>
     <published>2018-02-18T19:10:00-06:00</published>
-    <updated>2025-05-01T21:19:13-05:00</updated>
+    <updated>2025-08-30T21:29:10-05:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -888,269 +1311,6 @@ arrows, while those that curve to the right are called otoya, or second arrows.&
 &lt;/div&gt;
 
 &lt;div class="pagination clearfix"&gt;&lt;div class="right"&gt;&lt;a href="#"&gt;Top&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Using VW units for a full-width layout</title>
-    <link rel="alternate" href="http://blog.url.com/blog/2017-06-28-using-vw-units-for-a-full-width-layout.html"/>
-    <id>http://blog.url.com/blog/2017-06-28-using-vw-units-for-a-full-width-layout.html</id>
-    <published>2017-06-28T16:50:00-05:00</published>
-    <updated>2025-04-21T19:33:40-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;A CSS Grid gallery using viewport units (VW) to extend beyond the central text
-column, creating a full-width layout within the site’s existing wrapper
-structure.
-Also a script ensures intentional line breaks in gallery headers.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In the latter half of the seventeenth century, the general populace took up the
-practice of archery in increasing numbers.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class="full-width"&gt;
-  &lt;div class="gallery"&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-8f34c1cc.jpg" class="tweak-placement-3" alt="" /&gt;
-
-      &lt;h3&gt;Traditional Bow&lt;/h3&gt;
-      &lt;p&gt;The traditional Japanese bow, known as "yumi", is asymmetrical and much longer than Western bows.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-2-389970d2.jpg" class="tweak-placement-3" alt="" /&gt;
-
-      &lt;h3&gt;Kyudo Practice&lt;/h3&gt;
-      &lt;p&gt;Kyudo practitioners focus on proper form and spiritual development alongside accuracy.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-3-2fcedb0f.jpg" class="tweak-placement-5" alt="" /&gt;
-
-      &lt;h3&gt;Archery Equipment&lt;/h3&gt;
-      &lt;p&gt;Various tools and equipment used in Japanese archery, including arrows (ya) and gloves (yugake).&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-4-0f59f573.jpg" class="tweak-placement-4" alt="" /&gt;
-
-      &lt;h3&gt;Modern Competition&lt;/h3&gt;
-      &lt;p&gt;While rooted in tradition, Kyudo is also practiced as a competitive sport in modern Japan.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-5-d7fbf7f0.jpg" class="tweak-placement-4" alt="" /&gt;
-
-      &lt;h3&gt;Hassetsu - The Eight Stages of Shooting&lt;/h3&gt;
-      &lt;p&gt;The study of kyudo is divided into eight fundamental stages known as the hassetsu.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-6-ef73913c.jpg" class="tweak-placement-5" alt="" /&gt;
-
-      &lt;h3&gt;Ashibumi - footing&lt;/h3&gt;
-      &lt;p&gt;Asbibumi is the foundation upon which the remaining stages of the hassetsu are built.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-7-46deccd0.jpg" class="tweak-placement-4" alt="" /&gt;
-
-      &lt;h3&gt;Dozukuri - correcting the posture&lt;/h3&gt;
-      &lt;p&gt;Once the feet are in place you must turn your attention to the posture of the upper body.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-8-760cf0ea.jpg" class="tweak-placement-3" alt="" /&gt;
-
-      &lt;h3&gt;Yugamae - readying the bow&lt;/h3&gt;
-      &lt;p&gt;There are two styles oi yugamae in modern kyudo. The first is  shomen no kamae.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-9-ac52d545.jpg" class="tweak-placement-5" alt="" /&gt;
-
-      &lt;h3&gt;Totikake&lt;/h3&gt;
-      &lt;p&gt;One of the more difficult tasks in kyudo is making a clean, effortless release of the arrow.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-10-c2b232b8.jpg" class="tweak-placement-4" alt="" /&gt;
-
-      &lt;h3&gt;Tenouchi&lt;/h3&gt;
-      &lt;p&gt;After setting the glove you must prepare the tenouchi, a special method of holding the bow.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-11-37035fc3.jpg" class="tweak-placement-5" alt="" /&gt;
-
-      &lt;h3&gt;Nlonomi&lt;/h3&gt;
-      &lt;p&gt;Monomi, which literally means to view the object, is the final preparation in yugamae.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-12-ffe4a499.jpg" class="tweak-placement-4" alt="" /&gt;
-
-      &lt;h3&gt;Uchiokoshi - raising the bow&lt;/h3&gt;
-      &lt;p&gt;The bow is drawn primarily with the back and chest muscles, and not with the arms or hands.&lt;/p&gt;
-    &lt;/div&gt;
-
-    &lt;div class="gallery-item"&gt;
-
-  &lt;img src="../assets/images/posts/using-vw-units-for-a-full-width-layout-2017-06-28/archery-13-516ebab9.jpg" class="tweak-placement-2" alt="" /&gt;
-
-      &lt;h3&gt;Kai - completing the draw&lt;/h3&gt;
-      &lt;p&gt;Never think about when to release, simply wait until the moment is ripe for the arrow to fly.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Kyudo cannot be learned through technique alone; we must never forget the
-importance of the inner self when practicing.&lt;/p&gt;
-
-&lt;script&gt;
- // Code to  prevent widows in gallery item headers when they wrap
-document.addEventListener('DOMContentLoaded', function() {
-  // Select all h3 elements within gallery items
-  document.querySelectorAll('.gallery-item h3').forEach(function(heading) {
-    // Split the heading text into an array of words
-    let words = heading.innerHTML.split(' ');
-    // Check if there are more than one word
-    if (words.length &gt; 1) {
-      // Combine the last two words with a non-breaking space
-      words[words.length - 2] += '&amp;nbsp;' + words.pop(); // Add non-breaking space
-      // Join the words back into a single string and update the heading
-      heading.innerHTML = words.join(' ');
-    }
-  });
-});
-&lt;/script&gt;
-
-</content>
-  </entry>
-  <entry>
-    <title>all footer art</title>
-    <link rel="alternate" href="http://blog.url.com/blog/2017-05-08-all-footer-art.html"/>
-    <id>http://blog.url.com/blog/2017-05-08-all-footer-art.html</id>
-    <published>2017-05-08T20:14:00-05:00</published>
-    <updated>2025-04-21T19:36:16-05:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/404.png" alt="404 footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;404&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/applications.png" alt="applications footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;applications&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/art.png" alt="art footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;art&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/art-2.png" alt="art-2 footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;art-2&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/balloons.png" alt="balloons footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;balloons&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/birdnflags.png" alt="birdnflags footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;birdnflags&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/community.png" alt="community footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;community&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/default.png" alt="default footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;default&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/friends.png" alt="friends footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;friends&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/i18n.png" alt="i18n footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;i18n&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/library.png" alt="library footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;library&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/search_no-results.png" alt="search_no-results footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;search_no-results&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/search.png" alt="search footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;search&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-  &lt;figure&gt;
-    &lt;img src="/assets/stylesheets/img/footer_arts/support.png" alt="support footer image" /&gt;
-  &lt;figcaption&gt;
-    &lt;span class="hp"&gt;support&lt;/span&gt;
-  &lt;/figcaption&gt;
-  &lt;/figure&gt;
-
-&lt;p&gt;Ballons at &lt;a
-  href="http://web.archive.org/web/20120716233929if_/http://www.gnome.org/foundation/"
-  target="_blank"&gt; archive of page from The GNOME Foundation&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;And here's a &lt;a
-  href="http://web.archive.org/web/2012061504181if_1/http://www.gnome.org/support-gnome/"
-  target="_blank"&gt; default footer&lt;/a&gt; on a not too large page.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://themetix.com/gnome-grass" target="_blank"&gt; A footer&lt;/a&gt;
-somewhat like what we've collected.&lt;/p&gt;
-
-&lt;p&gt;the &lt;a href="https://github.com/vdepizzol/gnome-grass" target="_blank"&gt;
-gnome-grass theme&lt;/a&gt; on github.&lt;/p&gt;
 </content>
   </entry>
 </feed>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+    <!-- head include -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1'>
+    <title>Roji: Pixyll meets Middleman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <link href="../assets/stylesheets/fonts_pixyll-3af869c1.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/fonts_deja_vu_sans_mono-23920dc3.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/fonts_webfonts-1fead4a3.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/pixyll-9720cdc3.css" rel="stylesheet" />
+    <!-- sometimes CSS -->
+    
+  </head>
+  <!-- end head include -->
+
+  <body class="site">
+    <div class="site-wrap">
+            <!-- header include -->
+      <header class="site-header px2 px-responsive">
+        <div class="mt2 wrap">
+          <div class="measure">
+            <a href="../articles.html" class="site-title">roji</a>
+            <nav class="site-nav">
+
+              <!-- navigation from inside header inculde -->
+              <a href="../all-categories.html">Categories</a>
+              <a href="../all-tags.html">Tags</a>
+              <a href="../about.html">About</a>
+              <a href="../contact.html">Contact</a>
+              <!-- end navigation from inside header inculde -->
+
+            </nav>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </header>
+      <!-- end header include -->
+
+      <div class="post p2 p-responsive wrap" role="main">
+        <div class="measure">
+            <!-- https://forum.middlemanapp.com/t/helpful-for-others-categories-with-counts/2010 -->
+
+<div class="post-header mb2">
+  <h1>Roji: Pixyll meets Middleman</h1>
+  <span class="post-meta">Mar 16, 2018</span><br>
+
+<p class="small">
+ <span class="category-tags-icons fa fa-folder-open"></span>&nbsp;
+<a href="../categories/roji.html" data-toggle="tooltip" title="Posts with category roji" rel="tag">roji</a>
+<br>
+ <span class="category-tags-icons fa fa-tags"></span>&nbsp;
+<a href="../tags/roji.html" data-toggle="tooltip" title="Posts tagged with roji" rel="tag">roji</a>
+</p>
+</div>
+<article class="post-content">
+
+  <!-- yield to actual post content here -->
+      <p>Roji is a respectful port of the Pixyll theme to the Middleman static site
+generator. The original Liquid templates were replicated and rewritten for
+Middleman's Embedded Ruby (ERB) language. Additional templates for categories
+and tags were also created, which show how much effort goes into a
+well-designed minimalist theme without adding unnecessary complexity. This was
+a personal learning project, focused on using Middleman's flexibility to create
+a straightforward blogging workflow. The goal was to honor the original theme
+"crafted with &lt;3" by John Otander.</p>
+
+<p>Roji uses per-post directories and files to keep images, data, and stylesheets
+organized and self-contained by using naming conventions linking an asset to a
+post.</p>
+
+<p>Images and YAML data files live in parallel directories named after the post's
+filename inside images/posts/ and data/posts/. A single additional stylesheet
+for each post is named after the post’s filename and placed in a designated
+stylesheets directory for posts.</p>
+
+<p>Small automation scripts help scaffold stylesheets, organize images, and audit
+orphaned post-level assets like widowed data or image directories and
+stylesheets, simplifying blogging workflows.</p>
+
+<ul>
+  <li>
+    <p><strong>Data-Driven Content:</strong> Posts use Embedded Ruby (ERB) templates to pull structured data from YAML files and place it within markdown or HTML. A rake task does the necessary setup for post-associated data, including sample data and code.</p>
+  </li>
+  <li>
+    <p><strong>Page-Specific Styling:</strong> Each post can have a unique stylesheet compiled separately from the main CSS bundle. A rake task creates a correctly named stub <code>.css.scss</code> file. The stub has an SCSS comment to be pasted into the front matter of the associated post as its 'stylesheet:' page data property, and it imports Pixyll's _<code>variables.scss</code> file.</p>
+  </li>
+  <li>
+    <p><strong>Image Management:</strong> One flexible helper script manages post images by
+creating or using a directory named after the post, checking existing files
+to avoid collisions, and allowing image name specification. It generates
+markdown lines for image inclusion, optionally with kramdown attributes for CSS
+classes and IDs. It fetches images from both the internet and local files, and
+can be run multiple times to add images to a directory.</p>
+  </li>
+</ul>
+
+<p>Because Middleman includes built-in Sass processing, additional stylesheets can
+be organized in a limited sub-hierarchy under assets/stylesheets/, with
+directories like additional_styles/ and additional_styles/posts/. This approach
+keeps the Pixyll theme clean and uncluttered while enabling page- or
+post-specific stylesheets clearly named for association.</p>
+
+<p>Thanks to kramdown’s flexibility, CSS classes can be associated with markdown
+block and span level elements, and markdown can be used within HTML tags,
+enhancing styling and content control.</p>
+
+<p>For detailed setup and examples, see the <a href="2018-03-16-roji-in-action-working-with-post-assets.html">Roji in Action guide</a>.</p>
+
+
+  <!-- end yield to actual post content here -->
+
+</article>
+<!-- end of wrap_layout :layout do -->
+
+        </div>
+      </div>
+    </div> <!-- end .site-wrap -->
+
+    <div class="footer_art_default">
+    </div>
+
+    <div class="footer_grass">
+    </div>
+
+    <!-- footer include -->
+    <footer class="center">
+      <div class="measure">
+        <small>
+          <!-- Your version -->
+          <a href="https://traven-b.github.io/roji/" target="_blank">Roji</a>:
+          A Middleman port of the
+          <!-- Original theme -->
+          <a href="https://github.com/johno/pixyll" target="_blank">Pixyll Theme</a>.
+          <br>
+          <!-- Code link -->
+          &lt;/&gt; available at 
+          <a href="https://github.com/traven-b/roji" target="_blank">Github</a>
+        </small>
+      </div>
+    </footer>
+    <!-- end footer include -->
+
+  </body>
+</html>
