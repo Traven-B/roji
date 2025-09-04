@@ -111,6 +111,16 @@ activate :blog do |blog|
     },
   }
 
+  # this worked in a test project
+  # so an example of less code doing less
+  # blog.summary_generator = proc do |article, rendered, length, ellipsis|
+  #   if article.data["summary"]
+  #     Kramdown::Document.new(article.data["summary"], line_width: 80, hard_wrap: false, auto_ids: false).to_html
+  #   else
+  #     article.default_summary_generator(rendered, length, ellipsis)
+  #   end
+  # end
+
   if !ENV["show"]
     # default is no environment variable show
     # do this unless we said show
