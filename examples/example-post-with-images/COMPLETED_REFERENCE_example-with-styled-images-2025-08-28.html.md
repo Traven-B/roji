@@ -1,6 +1,6 @@
 ---
 title: Example with styled images
-date: 2025-08-28 21:52 CDT
+date: 2025-08-28 04:04 CDT
 category: test
 tags: test
 stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28
