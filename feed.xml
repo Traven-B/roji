@@ -76,7 +76,7 @@ enhancing styling and content control.&lt;/p&gt;
     <link rel="alternate" href="http://blog.url.com/blog/2018-03-16-roji-in-action-working-with-post-assets.html"/>
     <id>http://blog.url.com/blog/2018-03-16-roji-in-action-working-with-post-assets.html</id>
     <published>2018-03-16T04:25:00-05:00</published>
-    <updated>2025-09-03T21:58:33-05:00</updated>
+    <updated>2025-09-09T22:14:01-05:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -152,14 +152,14 @@ appear. In the following code snippet, the lines to add are pointed to with
 
 &lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;   ## The Ancient Period
 
-&amp;gt;&amp;gt; [_![](posts/example-with-styled-images-2025-08-28/dorthy-toto.jpg){: .right .mb1 .mhnn #dorthy-toto}_](#dorthy-toto)
+&amp;gt;&amp;gt; [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto.jpg){: .right .mb1 .mhnn #dorothy-toto}_](#dorothy-toto)
    From the fourth to the ninth century, Chinese culture strongly influenced the
    .
    .
    .
    from official inspectors.
 
-&amp;gt;&amp;gt; [_![](posts/example-with-styled-images-2025-08-28/dorthy-toto-2.jpg){: .left .mb1 .mhnn #dorthy-toto-2}_](#dorthy-toto-2)
+&amp;gt;&amp;gt; [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto-2.jpg){: .left .mb1 .mhnn #dorothy-toto-2}_](#dorothy-toto-2)
    An increasing amount of land thus passed into true private holdings. Then, as
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;p&gt;Add the markdown for the images at the start of a paragraph in this case, no empty line between
