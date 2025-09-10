@@ -68,14 +68,14 @@ supplying the relative path to the example input file.
    ~~~
       ## The Ancient Period
 
-   >> [_![](posts/example-with-styled-images-2025-08-28/dorthy-toto.jpg){: .right .mb1 .mhnn #dorthy-toto}_](#dorthy-toto)
+   >> [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto.jpg){: .right .mb1 .mhnn #dorothy-toto}_](#dorothy-toto)
       From the fourth to the ninth century, Chinese culture strongly influenced the
       .
       .
       .
       from official inspectors.
 
-   >> [_![](posts/example-with-styled-images-2025-08-28/dorthy-toto-2.jpg){: .left .mb1 .mhnn #dorthy-toto-2}_](#dorthy-toto-2)
+   >> [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto-2.jpg){: .left .mb1 .mhnn #dorothy-toto-2}_](#dorothy-toto-2)
       An increasing amount of land thus passed into true private holdings. Then, as
    ~~~
 

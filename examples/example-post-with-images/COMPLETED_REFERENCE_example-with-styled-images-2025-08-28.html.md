@@ -12,7 +12,7 @@ Jimmu is always depicted with a long bow and arrows.
 
 ## The Ancient Period
 
-[_![](posts/example-with-styled-images-2025-08-28/dorthy-toto.jpg.jpg){: .right .mb1 .mhnn #dorthy-toto.jpg}_](#dorthy-toto.jpg)
+[_![](posts/example-with-styled-images-2025-08-28/dorothy-toto.jpg.jpg){: .right .mb1 .mhnn #dorothy-toto.jpg}_](#dorothy-toto.jpg)
 From the fourth to the ninth century, Chinese culture strongly influenced the
 system of government in Japan. Along with etiquette and court ritual, the
 Japanese adopted the ceremonial archery of the Chinese aristocracy, which
@@ -33,7 +33,7 @@ altered the practice of Japanese archery. First of all, as the power of
 privileged landowners increased, they were granted tax exemptions and immunity
 from official inspectors.
 
-[_![](posts/example-with-styled-images-2025-08-28/dorthy-toto.jpg-2.jpg){: .left .mb1 .mhnn #dorthy-toto.jpg-2}_](#dorthy-toto.jpg-2)
+[_![](posts/example-with-styled-images-2025-08-28/dorothy-toto.jpg-2.jpg){: .left .mb1 .mhnn #dorothy-toto.jpg-2}_](#dorothy-toto.jpg-2)
 An increasing amount of land thus passed into true private holdings. Then, as
 the state's authority over the land diminished, landowners assumed the
 responsibility of governing and protecting the people who lived within their
