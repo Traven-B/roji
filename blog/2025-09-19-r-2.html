@@ -1,0 +1,406 @@
+<!doctype html>
+<html>
+    <!-- head include -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1'>
+    <title>r 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/feed.xml" />
+    <link href="../assets/stylesheets/fonts_pixyll-3af869c1.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/fonts_deja_vu_sans_mono-23920dc3.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/fonts_webfonts-1fead4a3.css" rel="stylesheet" />
+    <link href="../assets/stylesheets/pixyll-9720cdc3.css" rel="stylesheet" />
+    <!-- sometimes CSS -->
+    <link href="../assets/stylesheets/additional_styles/posts/roji-in-action-working-with-post-assets-2018-03-16-b9ccb987.css" rel="stylesheet" />
+  </head>
+  <!-- end head include -->
+
+  <body class="site">
+    <div class="site-wrap">
+            <!-- header include -->
+      <header class="site-header px2 px-responsive">
+        <div class="mt2 wrap">
+          <div class="measure">
+            <a href="../articles.html" class="site-title">roji</a>
+            <nav class="site-nav">
+
+              <!-- navigation from inside header inculde -->
+              <a href="../all-categories.html">Categories</a>
+              <a href="../all-tags.html">Tags</a>
+              <a href="../about.html">About</a>
+              <a href="../contact.html">Contact</a>
+              <!-- end navigation from inside header inculde -->
+
+            </nav>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </header>
+      <!-- end header include -->
+
+      <div class="post p2 p-responsive wrap" role="main">
+        <div class="measure">
+            <!-- https://forum.middlemanapp.com/t/helpful-for-others-categories-with-counts/2010 -->
+
+<div class="post-header mb2">
+  <h1>r 2</h1>
+  <span class="post-meta">Sep 19, 2025</span><br>
+
+<p class="small">
+ <span class="category-tags-icons fa fa-folder-open"></span>&nbsp;
+<a href="../categories/roji.html" data-toggle="tooltip" title="Posts with category roji" rel="tag">roji</a>
+<br>
+ <span class="category-tags-icons fa fa-tags"></span>&nbsp;
+<a href="../tags/roji.html" data-toggle="tooltip" title="Posts tagged with roji" rel="tag">roji</a>
+</p>
+</div>
+<article class="post-content">
+
+  <!-- yield to actual post content here -->
+      
+<sstyle>
+
+
+/* Full-width pre blocks inside list items */
+li pre {
+  display: block;
+  max-width: 100vw;                       /* don't exceed viewport */
+  width: 100vw;                           /* stretch to viewport */
+  margin-left: calc(50% - 50vw);          /* negative margin to break out */
+  margin-right: calc(50% - 50vw);
+  padding: 0.75em;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  overflow-x: auto;                       /* horizontal scroll for long lines */
+  white-space: pre;                        /* preserve spacing and line breaks */
+  box-sizing: border-box;
+}
+
+/* Optional tweak for very wide screens */
+@media screen and (min-width: 1200px) {
+  li pre {
+    max-width: calc(100vw - 4rem);
+    margin-left: calc(50% - 50vw + 2rem);
+    margin-right: calc(50% - 50vw + 2rem);
+  }
+}
+</sstyle>
+
+<style>
+/* pre.pre-code-wrap { */
+/* .highlight.wrap pre {  */
+pre code { 
+  white-space: pre-wrap;    /* wrap long lines */
+  word-wrap: break-word;    /* break long words if necessary */
+  overflow: hidden;         /* hide any overflow */
+  /* color: #7a7a7a;
+  background-color: #fafafa; */
+}
+</style>
+
+<h2>Workflows in this Guide</h2>
+
+<ul class="workflow-menu">
+  <li><a href="#image-flow">Workflow 1: How to Add Styled Images to Your Post</a></li>
+  <li><a href="#data-flow">Workflow 2: How to Use Data-Driven Content in Your Posts</a></li>
+  <li><a href="#appendix">Appendix: Cleaning Up Post Assets with find_widows</a></li>
+</ul>
+
+<p>This guide walks through <strong>two common post workflows</strong>:</p>
+
+<ol>
+  <li><strong>Images + Stylesheets</strong> – fetching images into a per-post directory and creating a page-scoped stylesheet.</li>
+  <li><strong>Post Data</strong> – generating a sample data file with a rake task, and using ERB to inject YAML data as markdown content.</li>
+</ol>
+
+<p>Each workflow shows how Roji’s per-post asset directories keep content structured, self-contained, and easy to manage.</p>
+
+<p><strong>Step 0:</strong> Install the tiny <code>micro-optparse</code> gem globally, if not already present:</p>
+
+<p><code>bash
+gem list micro-optparse
+gem install micro-optparse
+</code></p>
+
+<h1>How to Add Styled Images to Your Post</h1>
+
+<p id="image-flow">Follow these steps to add styled images using the example files and scripts.</p>
+
+<h2>Step 1: Prepare Your Post Markdown</h2>
+
+<ol>
+  <li>
+    <p>Copy an example post markdown file to <code>source/posts/</code>.<br />
+Navigate to the <code>source/posts</code> directory and do:</p>
+
+    <div class="iwrap">
+<div class="highlight"><pre class="highlight plaintext"><code>cp ../../examples/example-post-with-images/example-with-styled-images-2025-08-28.html.md .
+</code></pre></div>
+    </div>
+  </li>
+  <li>
+    <p>Copy an example post markdown file to <code>source/posts/</code>.<br />
+Navigate to the <code>source/posts</code> directory and do:</p>
+  </li>
+</ol>
+
+<div class="highlight"><pre class="highlight plaintext"><code>cp ../../examples/example-post-with-images/example-with-styled-images-2025-08-28.html.md .
+</code></pre></div>
+<p><em>Note the trailing dot indicating the current directory.</em></p>
+
+<ol>
+  <li>
+    <p>This file contains YAML front matter and text to float some images around.</p>
+  </li>
+  <li>
+    <p>Insert the markdown lines at the desired positions in your post. For example:</p>
+
+<div class="highlight"><pre class="highlight markdown"><code><span class="gu">## The Ancient Period</span>
+<span class="gt">
+&gt;&gt; [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto.jpg){: .right .mb1 .mhnn #dorothy-toto}_](#dorothy-toto)</span>
+   From the fourth to the ninth century, Chinese culture strongly influenced the...
+<span class="gt">
+&gt;&gt; [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto-2.jpg){: .left .mb1 .mhnn #dorothy-toto-2}_](#dorothy-toto-2)</span>
+   An increasing amount of land thus passed into true private holdings...
+</code></pre></div>  </li>
+</ol>
+
+<h2>Step 2: Generate Image Markdown Lines</h2>
+
+<ol>
+  <li>Run the image processing script from <code>source/posts/</code>, supplying the relative input file:</li>
+</ol>
+
+<p><code>bash
+../../utils/do_images.rb ../../examples/example-post-with-images/input-for-do-images.txt &gt; /tmp/mk_lines.txt
+</code></p>
+
+<ol>
+  <li>
+    <p>The script copies source images into the post's image directory with unique names and outputs markdown lines linking to them.</p>
+  </li>
+  <li>
+    <p>Review the generated lines in <code>/tmp/mk_lines.txt</code>.</p>
+  </li>
+</ol>
+
+<h2>Step 3: Add Markdown to Your Post</h2>
+
+<ol>
+  <li>
+    <p>Insert the markdown lines at the desired positions in your post. For example:</p>
+
+<div class="highlight"><pre class="highlight markdown"><code><span class="gu">## The Ancient Period</span>
+<span class="gt">   
+&gt;&gt; [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto.jpg){: .right .mb1 .mhnn #dorothy-toto}_](#dorothy-toto)</span>
+   From the fourth to the ninth century, Chinese culture strongly influenced the...
+<span class="gt">   
+&gt;&gt; [_![](posts/example-with-styled-images-2025-08-28/dorothy-toto-2.jpg){: .left .mb1 .mhnn #dorothy-toto-2}_](#dorothy-toto-2)</span>
+   An increasing amount of land thus passed into true private holdings...
+</code></pre></div>  </li>
+  <li>
+    <p>Adjust classes (e.g., <code>.left</code> or <code>.right</code>) to float images as desired.</p>
+  </li>
+  <li>
+    <p>Save the post.</p>
+  </li>
+</ol>
+
+<h2>Step 4: Update the Stylesheet</h2>
+
+<ol>
+  <li>Run the rake task to create the per-post stylesheet:</li>
+</ol>
+
+<p><code>bash
+rake make_extra_css example-with-styled-images-2025-08-28.html.md
+</code></p>
+
+<p>This generates:</p>
+
+<p><code>text
+../assets/stylesheets/additional_styles/posts/example-with-styled-images-2025-08-28.css.scss
+</code></p>
+
+<ol>
+  <li>
+    <p>Append example CSS rules from <code>examples/complete-scss-style-contents.css.scss</code>.</p>
+  </li>
+  <li>
+    <p>Copy the first line comment of the stylesheet into the post YAML front matter as <code>stylesheet:</code>:</p>
+  </li>
+</ol>
+
+<h2>```yaml</h2>
+<p>title: Example with styled images
+date: 2025-08-28 21:52 CDT
+category: test
+tags: test
+stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28
+—
+```</p>
+
+<ol>
+  <li>Save both files.</li>
+</ol>
+
+<h2>Step 5: Build and Preview</h2>
+
+<p>Run <code>middleman build</code> (or equivalent) and preview the post.</p>
+
+<blockquote>
+  <p>Tip: After deleting the post, run <code>rake find_widows</code> to track leftover per-post assets.</p>
+</blockquote>
+
+<h1>How to Use Data-Driven Content in Your Posts</h1>
+
+<p id="data-flow">This workflow generates a data file with boilerplate ERB for inclusion in an otherwise empty <code>.html.md.erb</code> post.</p>
+
+<h2>Step 1: Prepare Your Post Markdown</h2>
+
+<p>Copy an example post:</p>
+
+<p><code>bash
+cp ../../examples/example-post-using-data/example-using-data-2025-08-28.html.md.erb .
+</code></p>
+
+<h2>Step 2: Generate Data Directory</h2>
+
+<p>Run the rake task:</p>
+
+<p><code>bash
+rake use_data example-using-data-2025-08-28.html.md.erb
+</code></p>
+
+<p>This creates a YAML data file:</p>
+
+<p><code>text
+../../data/posts/example_using_data_2025_08_28/a.yml
+</code></p>
+
+<h2>Step 3: Inject ERB Code into the Post</h2>
+
+<ol>
+  <li>Edit <code>a.yml</code> to remove the code block after the data.</li>
+  <li>Cut the code and paste it after the post's front matter.</li>
+</ol>
+
+<p><code>erb
+&lt;% elements = data.posts.example_using_data_2025_08_28.a %&gt;
+&lt;% current_page.data.summary = elements.map { |e| "### #{e[:name]}\n\n" }.join %&gt;
+</code></p>
+
+<ol>
+  <li>Save both files. A boilerplate copy remains at:</li>
+</ol>
+
+<p><code>text
+../../utils/use_data_separate_boilerplate.txt
+</code></p>
+
+<h2>Step 4: Stylesheet</h2>
+
+<p>Optional; usually no extra stylesheet is needed.</p>
+
+<h2>Step 5: Build and Preview</h2>
+
+<p>Run <code>middleman build</code> and preview.</p>
+
+<blockquote>
+  <p>Tip: Use <code>rake find_widows</code> after deleting a data-driven post to track leftover per-post assets.</p>
+</blockquote>
+
+<h1>Appendix: Cleaning Up Post Assets with find_widows</h1>
+
+<p id="appendix">Both workflows create assets named after the post:</p>
+
+<ul>
+  <li>Workflow 1: per-post image directory and stylesheet.</li>
+  <li>Workflow 2: per-post data directory.</li>
+</ul>
+
+<p>If a post is deleted, <code>find_widows.rb</code> finds leftover post assets for cleanup.</p>
+
+<h3>Run the Audit</h3>
+
+<p><code>bash
+rake find_widows
+</code></p>
+
+<p>Example output:</p>
+
+<p><code>text
+widowed image directories are: example-with-styled-images-2025-08-28
+widowed style files are: example-with-styled-images-2025-08-28
+no widowed DATA directories found
+</code></p>
+
+<h3>Remove Leftover Assets</h3>
+
+<p><code>bash
+rm -rf source/assets/images/posts/example-with-styled-images-2025-08-28
+rm -f source/assets/stylesheets/additional_styles/posts/example-with-styled-images-2025-08-28.css.scss
+rm -rf data/posts/example_using_data_2025_08_28
+</code></p>
+
+<blockquote>
+  <p>Note: Data directories use underscores <code>_</code> instead of hyphens <code>-</code> to work with Middleman’s <code>data</code> helper methods.</p>
+</blockquote>
+
+<h3>When to Use</h3>
+
+<ul>
+  <li>After deleting test or example posts.</li>
+  <li>Periodically, to tidy up drafts or experiments.</li>
+</ul>
+
+<blockquote>
+  <p>Safety Tip: Use <code>ls</code> + tab completion before replacing with <code>rm</code> or <code>rm -rf</code> to avoid mistakes.</p>
+</blockquote>
+
+<p>```</p>
+
+<p>This keeps the step-by-step clarity, emphasizes “better workflow” feel, and aligns with the style you’ve been using for the intro page.</p>
+
+<p>If you want, I can also condense some of the long code explanations and remove redundant phrases without losing clarity, to make it even more readable for someone following the guide.</p>
+
+<p>Do you want me to do that next?
+```</p>
+
+
+  <!-- end yield to actual post content here -->
+
+</article>
+<!-- end of wrap_layout :layout do -->
+
+        </div>
+      </div>
+    </div> <!-- end .site-wrap -->
+
+    <div class="footer_art_default">
+    </div>
+
+    <div class="footer_grass">
+    </div>
+
+    <!-- footer include -->
+    <footer class="center">
+      <div class="measure">
+        <small>
+          <!-- Your version -->
+          <a href="https://traven-b.github.io/roji/" target="_blank">Roji</a>:
+          A Middleman port of the
+          <!-- Original theme -->
+          <a href="https://github.com/johno/pixyll" target="_blank">Pixyll Theme</a>.
+          <br>
+          <!-- Code link -->
+          &lt;/&gt; available at 
+          <a href="https://github.com/traven-b/roji" target="_blank">Github</a>
+        </small>
+      </div>
+    </footer>
+    <!-- end footer include -->
+
+  </body>
+</html>
