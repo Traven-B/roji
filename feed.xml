@@ -138,7 +138,7 @@ Navigate to the &lt;code&gt;source/posts&lt;/code&gt; directory and do:&lt;/p&gt
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;The script copies source images into the post's image directory with unique names and outputs markdown lines linking to them.&lt;/p&gt;
+    &lt;p&gt;The script copies source images into the post’s image directory with unique names and outputs markdown lines linking to them.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Review the generated lines in &lt;code&gt;/tmp/mk_lines.txt&lt;/code&gt;.&lt;/p&gt;
@@ -243,7 +243,7 @@ rake use_data example-using-data-2025-08-28.html.md.erb
 
 &lt;ol&gt;
   &lt;li&gt;Edit &lt;code&gt;a.yml&lt;/code&gt; to remove the code block after the data.&lt;/li&gt;
-  &lt;li&gt;Cut the code and paste it after the post's front matter.&lt;/li&gt;
+  &lt;li&gt;Cut the code and paste it after the post’s front matter.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;code&gt;erb
@@ -388,18 +388,18 @@ rm -rf data/posts/example_using_data_2025_08_28
     </author>
     <content type="html">&lt;p&gt;Roji is a respectful port of the Pixyll theme to the Middleman static site
 generator. The original Liquid templates were replicated and rewritten for
-Middleman's Embedded Ruby (ERB) language. Additional templates for categories
+Middleman’s Embedded Ruby (ERB) language. Additional templates for categories
 and tags were also created, which show how much effort goes into a
 well-designed minimalist theme without adding unnecessary complexity. This was
-a personal learning project, focused on using Middleman's flexibility to create
+a personal learning project, focused on using Middleman’s flexibility to create
 a straightforward blogging workflow. The goal was to honor the original theme
-"crafted with &amp;lt;3" by John Otander.&lt;/p&gt;
+“crafted with &amp;lt;3” by John Otander.&lt;/p&gt;
 
 &lt;p&gt;Roji uses per-post directories and files to keep images, data, and stylesheets
 organized and self-contained by using naming conventions linking an asset to a
 post.&lt;/p&gt;
 
-&lt;p&gt;Images and YAML data files live in parallel directories named after the post's
+&lt;p&gt;Images and YAML data files live in parallel directories named after the post’s
 filename inside images/posts/ and data/posts/. A single additional stylesheet
 for each post is named after the post’s filename and placed in a designated
 stylesheets directory for posts.&lt;/p&gt;
@@ -413,7 +413,7 @@ stylesheets, simplifying blogging workflows.&lt;/p&gt;
     &lt;p&gt;&lt;strong&gt;Data-Driven Content:&lt;/strong&gt; Posts use Embedded Ruby (ERB) templates to pull structured data from YAML files and place it within markdown or HTML. A rake task does the necessary setup for post-associated data, including sample data and code.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Page-Specific Styling:&lt;/strong&gt; Each post can have a unique stylesheet compiled separately from the main CSS bundle. A rake task creates a correctly named stub &lt;code&gt;.css.scss&lt;/code&gt; file. The stub has an SCSS comment to be pasted into the front matter of the associated post as its 'stylesheet:' page data property, and it imports Pixyll's _&lt;code&gt;variables.scss&lt;/code&gt; file.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Page-Specific Styling:&lt;/strong&gt; Each post can have a unique stylesheet compiled separately from the main CSS bundle. A rake task creates a correctly named stub &lt;code&gt;.css.scss&lt;/code&gt; file. The stub has an SCSS comment to be pasted into the front matter of the associated post as its ‘stylesheet:’ page data property, and it imports Pixyll’s _&lt;code&gt;variables.scss&lt;/code&gt; file.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Image Management:&lt;/strong&gt; One flexible helper script manages post images by
@@ -448,26 +448,20 @@ enhancing styling and content control.&lt;/p&gt;
     <author>
       <name>Article Author</name>
     </author>
-    <content type="html">&lt;h2&gt;Workflows in this Guide&lt;/h2&gt;
-
-&lt;ul class="workflow-menu"&gt;
-  &lt;li&gt;&lt;a href="#image-flow"&gt;Workflow 1: How to Add Styled Images to Your Post&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#data-flow"&gt;Workflow 2: How to Use Data-Driven Content in Your Posts&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="#appendix"&gt;Appendix: Cleaning Up Post Assets with find_widows&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This guide walks through &lt;strong&gt;two typical post workflows&lt;/strong&gt;:&lt;/p&gt;
+    <content type="html">:
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Images + Stylesheets&lt;/strong&gt; – fetching images into a per‑post directory, and creating a page‑scoped stylesheet.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Post Data&lt;/strong&gt; – generating a sample data file with a rake task, and ERB code that injects the YAML data as markdown text.&lt;/li&gt;
+  &lt;li&gt;
+&lt;strong&gt;Images + Stylesheets&lt;/strong&gt; – fetching images into a per‑post directory, and creating a page‑scoped stylesheet.&lt;/li&gt;
+  &lt;li&gt;
+&lt;strong&gt;Post Data&lt;/strong&gt; – generating a sample data file with a rake task, and ERB code that injects the YAML data as markdown text.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Each workflow illustrates how Roji adopts per-post asset directories to keep content structured, self-contained, and easy to manage.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 0:&lt;/strong&gt; At the moment we need the micro-optparse gem installed, globally.
 Check for its presence with &lt;code&gt;gem list micro-optparse&lt;/code&gt;. Install the gem via
-&lt;code&gt;gem install micro-optparse&lt;/code&gt;, it's quite tiny.&lt;/p&gt;
+&lt;code&gt;gem install micro-optparse&lt;/code&gt;, it’s quite tiny.&lt;/p&gt;
 
 &lt;h1 id="image-flow"&gt;How to Add Styled Images to Your Post&lt;/h1&gt;
 
@@ -501,7 +495,7 @@ supplying the relative path to the example input file.&lt;/p&gt;
 second markdown pattern line can be as simple as &lt;code&gt;![]()&lt;/code&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;The script copies source images into your post's image directory with unique
+    &lt;p&gt;The script copies source images into your post’s image directory with unique
 names and generates markdown lines linking to those images.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -516,7 +510,7 @@ names and generates markdown lines linking to those images.&lt;/p&gt;
     &lt;p&gt;Edit the post markdown file in &lt;code&gt;source/posts&lt;/code&gt; and insert the image markdown
 lines from &lt;code&gt;/tmp/mk_lines.txt&lt;/code&gt; at the positions you want the images to
 appear. In the following code snippet, the lines to add are pointed to with
-'»' chars.&lt;/p&gt;
+‘»’ chars.&lt;/p&gt;
 
 &lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;   ## The Ancient Period
 
@@ -535,7 +529,7 @@ the added markdown and the paragraph text.&lt;/p&gt;
 
     &lt;p&gt;Add above the lines starting with &lt;code&gt;From the fourth&lt;/code&gt; and &lt;code&gt;An increasing amount&lt;/code&gt;.&lt;/p&gt;
 
-    &lt;p&gt;Edit the second image's markdown to have class &lt;code&gt;.left&lt;/code&gt; instead of &lt;code&gt;.right&lt;/code&gt;, to &lt;em&gt;&lt;strong&gt;float&lt;/strong&gt; the second
+    &lt;p&gt;Edit the second image’s markdown to have class &lt;code&gt;.left&lt;/code&gt; instead of &lt;code&gt;.right&lt;/code&gt;, to &lt;em&gt;&lt;strong&gt;float&lt;/strong&gt; the second
 image to the &lt;strong&gt;left&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -590,14 +584,14 @@ widowed file and directory and reminds you they exist.&lt;/p&gt;
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-    &lt;p&gt;So one thing we've done is to make available sass variables, you can see &lt;code&gt;$viewport-small&lt;/code&gt; being
+    &lt;p&gt;So one thing we’ve done is to make available sass variables, you can see &lt;code&gt;$viewport-small&lt;/code&gt; being
 used in the media query. The &lt;code&gt;.mhnn&lt;/code&gt; class was already named in the markdown image lines we
 generated. Not implausible, we could anticipate needing a style class, and choose a generic name.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Copy the special comment line at the top of the stylesheet file (i.e., &lt;code&gt;//
 stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28&lt;/code&gt;) and
-paste it into the post's YAML front matter as the &lt;code&gt;stylesheet:&lt;/code&gt; property.&lt;/p&gt;
+paste it into the post’s YAML front matter as the &lt;code&gt;stylesheet:&lt;/code&gt; property.&lt;/p&gt;
 
 &lt;div class="highlight"&gt;&lt;pre class="highlight plaintext"&gt;&lt;code&gt;   ---
    title: Example with styled images
@@ -622,7 +616,7 @@ paste it into the post's YAML front matter as the &lt;code&gt;stylesheet:&lt;/co
 post to see the styled images correctly rendered within your post.&lt;/p&gt;
 
 &lt;p&gt;Tip: After deleting this example post, run rake find_widows to identify any
-orphaned post assets that you'll remove manually. See &lt;a href="#appendix"&gt;Appendix: Cleaning Up&lt;/a&gt;&lt;/p&gt;
+orphaned post assets that you’ll remove manually. See &lt;a href="#appendix"&gt;Appendix: Cleaning Up&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id="data-flow"&gt;How to Use Data-Driven Content in Your Posts&lt;/h1&gt;
 
@@ -709,17 +703,17 @@ preserved at&lt;/p&gt;
 
 &lt;h2&gt;Step 4: Update the Stylesheet&lt;/h2&gt;
 
-&lt;p&gt;Additional stylesheet? We don't need no stinking additional styletheet!&lt;/p&gt;
+&lt;p&gt;Additional stylesheet? We don’t need no stinking additional styletheet!&lt;/p&gt;
 
 &lt;h2&gt;Step 5: Build and Preview&lt;/h2&gt;
 
 &lt;p&gt;Run your build process (e.g., &lt;code&gt;middleman build&lt;/code&gt; or equivalent) and preview the post.&lt;/p&gt;
 
-&lt;p&gt;Oh look, the internet says Maggie Cheung also was in the movie "2046". Duplicate
+&lt;p&gt;Oh look, the internet says Maggie Cheung also was in the movie “2046”. Duplicate
 that line in the &lt;code&gt;a.yml&lt;/code&gt; file put it the Maggie Cheung list of movies too. Run the build.&lt;/p&gt;
 
 &lt;p&gt;Tip: After deleting this example post, run rake find_widows to identify any
-orphaned post assets that you'll remove manually. See &lt;a href="#appendix"&gt;Appendix: Cleaning Up&lt;/a&gt;&lt;/p&gt;
+orphaned post assets that you’ll remove manually. See &lt;a href="#appendix"&gt;Appendix: Cleaning Up&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id="appendix"&gt;Appendix: Cleaning Up Post Assets with find_widows&lt;/h1&gt;
 
@@ -823,29 +817,29 @@ for then how could pixels be misaligned?&lt;/p&gt;
 
 &lt;div class="custom-quote"&gt;
   &lt;blockquote&gt;
-    &lt;p&gt;"The span that speaks its purpose&lt;br /&gt;
-is no span at all."&lt;/p&gt;
+    &lt;p&gt;“The span that speaks its purpose&lt;br /&gt;
+is no span at all.”&lt;/p&gt;
   &lt;/blockquote&gt;
 &lt;/div&gt;
 
-&lt;p&gt;A monk built an additional page in Pixyll's style -&lt;br /&gt;
+&lt;p&gt;A monk built an additional page in Pixyll’s style -&lt;br /&gt;
 apprentice-bound to table layout.&lt;br /&gt;
 He rebuilt it with lists and silent spans -&lt;br /&gt;
 identical to all eyes but his own.&lt;/p&gt;
 
-&lt;p&gt;"You broke our vow of pixel perfection!" cried his shadow.&lt;br /&gt;
-"I left that apprenticeship at the riverbank," replied the monk.&lt;br /&gt;
-"Why do you still weigh its ghosts?"&lt;/p&gt;
+&lt;p&gt;“You broke our vow of pixel perfection!” cried his shadow.&lt;br /&gt;
+“I left that apprenticeship at the riverbank,” replied the monk.&lt;br /&gt;
+“Why do you still weigh its ghosts?”&lt;/p&gt;
 
 &lt;p&gt;The master shouts ::marker&lt;br /&gt;
 The monk points to his ::before.&lt;br /&gt;
-The master mutters: "Scoundrel… the way is straight!"&lt;br /&gt;
-The monk mutters: "Scoundrel, scoundrel, scoundrel"&lt;/p&gt;
+The master mutters: “Scoundrel… the way is straight!”&lt;br /&gt;
+The monk mutters: “Scoundrel, scoundrel, scoundrel”&lt;/p&gt;
 
 &lt;p&gt;When the silent span becomes no span,&lt;br /&gt;
 the arrow finds its own way&lt;/p&gt;
 
-&lt;p&gt;"Spam spans! Spam spans! Spam spans!"&lt;br /&gt;
+&lt;p&gt;“Spam spans! Spam spans! Spam spans!”&lt;br /&gt;
 The monk burns the spans -&lt;br /&gt;
 anchor and time.&lt;/p&gt;
 
@@ -862,12 +856,12 @@ flex-container when awakened!&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;When the rendered form is neither table nor flex,&lt;br /&gt;
-HTML's essence appears.&lt;/p&gt;
+HTML’s essence appears.&lt;/p&gt;
 
   &lt;p&gt;When files are both HTML and HAML,&lt;br /&gt;
-Middleman's nature appears.&lt;/p&gt;
+Middleman’s nature appears.&lt;/p&gt;
 
-  &lt;p&gt;Through Tilt's gate&lt;br /&gt;
+  &lt;p&gt;Through Tilt’s gate&lt;br /&gt;
 templates pass -&lt;br /&gt;
 static truth&lt;/p&gt;
   &lt;footer&gt;Middleman&lt;/footer&gt;
@@ -997,7 +991,7 @@ hierarchy. Yay.&lt;/p&gt;
 &lt;h3 id="footnotes"&gt;Footnotes!&lt;/h3&gt;
 
 &lt;p&gt;Markdown footnotes are supported, and they look great! Simply put e.g.
-&lt;code class=""&gt;[^1]&lt;/code&gt; where you want the footnote to appear,&lt;sup id="fnref:1" role="doc-noteref"&gt;&lt;a href="#fn:1" class="footnote" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;
+&lt;code class=""&gt;[^1]&lt;/code&gt; where you want the footnote to appear,&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;
 and then add the reference at
 the end of your markdown.&lt;/p&gt;
 
@@ -1027,7 +1021,7 @@ when there is nothing left to take away.&lt;/p&gt;
 
 &lt;p&gt;Tables represent tabular data and can be built using markdown syntax.  They are rendered responsively in Pixyll for a variety of screen widths.&lt;/p&gt;
 
-&lt;p&gt;Here's a simple example of a table:&lt;/p&gt;
+&lt;p&gt;Here’s a simple example of a table:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1105,12 +1099,12 @@ when there is nothing left to take away.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;line&lt;br /&gt;break&lt;/td&gt;
-      &lt;td style="text-align: left"&gt;"Smart quotes"&lt;/td&gt;
+      &lt;td style="text-align: left"&gt;“Smart quotes”&lt;/td&gt;
       &lt;td style="text-align: center"&gt;&lt;mark&gt;highlight&lt;/mark&gt;&lt;/td&gt;
       &lt;td style="text-align: right"&gt;&lt;span class="green"&gt;green&lt;/span&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Footnote&lt;sup id="fnref:2" role="doc-noteref"&gt;&lt;a href="#fn:2" class="footnote" rel="footnote"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
+      &lt;td&gt;Footnote&lt;sup id="fnref:2"&gt;&lt;a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref"&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/td&gt;
       &lt;td style="text-align: left"&gt;&lt;sub&gt;subscript&lt;/sub&gt;&lt;/td&gt;
       &lt;td style="text-align: center"&gt;&lt;sup&gt;superscript&lt;/sup&gt;&lt;/td&gt;
       &lt;td style="text-align: right"&gt;&lt;span class="red"&gt;red&lt;/span&gt;&lt;/td&gt;
@@ -1140,12 +1134,12 @@ when there is nothing left to take away.&lt;/p&gt;
 
 &lt;div class="footnotes" role="doc-endnotes"&gt;
   &lt;ol&gt;
-    &lt;li id="fn:1" role="doc-endnote"&gt;
+    &lt;li id="fn:1"&gt;
       &lt;p&gt;Important information that may distract from the main text can go in
 footnotes. &lt;a href="#fnref:1" class="reversefootnote" role="doc-backlink"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id="fn:2" role="doc-endnote"&gt;
-      &lt;p&gt;Footnotes will work in tables since they're just links. &lt;a href="#fnref:2" class="reversefootnote" role="doc-backlink"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;li id="fn:2"&gt;
+      &lt;p&gt;Footnotes will work in tables since they’re just links. &lt;a href="#fnref:2" class="reversefootnote" role="doc-backlink"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

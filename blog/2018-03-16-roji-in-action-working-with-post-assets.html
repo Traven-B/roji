@@ -77,7 +77,7 @@
 
 <p><strong>Step 0:</strong> At the moment we need the micro-optparse gem installed, globally.
 Check for its presence with <code>gem list micro-optparse</code>. Install the gem via
-<code>gem install micro-optparse</code>, it's quite tiny.</p>
+<code>gem install micro-optparse</code>, it’s quite tiny.</p>
 
 <h1 id="image-flow">How to Add Styled Images to Your Post</h1>
 
@@ -111,7 +111,7 @@ supplying the relative path to the example input file.</p>
 second markdown pattern line can be as simple as <code>![]()</code>.</p>
   </li>
   <li>
-    <p>The script copies source images into your post's image directory with unique
+    <p>The script copies source images into your post’s image directory with unique
 names and generates markdown lines linking to those images.</p>
   </li>
   <li>
@@ -126,7 +126,7 @@ names and generates markdown lines linking to those images.</p>
     <p>Edit the post markdown file in <code>source/posts</code> and insert the image markdown
 lines from <code>/tmp/mk_lines.txt</code> at the positions you want the images to
 appear. In the following code snippet, the lines to add are pointed to with
-'»' chars.</p>
+‘»’ chars.</p>
 
 <div class="highlight"><pre class="highlight plaintext"><code>   ## The Ancient Period
 
@@ -145,7 +145,7 @@ the added markdown and the paragraph text.</p>
 
     <p>Add above the lines starting with <code>From the fourth</code> and <code>An increasing amount</code>.</p>
 
-    <p>Edit the second image's markdown to have class <code>.left</code> instead of <code>.right</code>, to <em><strong>float</strong> the second
+    <p>Edit the second image’s markdown to have class <code>.left</code> instead of <code>.right</code>, to <em><strong>float</strong> the second
 image to the <strong>left</strong></em>.</p>
   </li>
   <li>
@@ -200,14 +200,14 @@ widowed file and directory and reminds you they exist.</p>
     }
 }
 </code></pre></div>
-    <p>So one thing we've done is to make available sass variables, you can see <code>$viewport-small</code> being
+    <p>So one thing we’ve done is to make available sass variables, you can see <code>$viewport-small</code> being
 used in the media query. The <code>.mhnn</code> class was already named in the markdown image lines we
 generated. Not implausible, we could anticipate needing a style class, and choose a generic name.</p>
   </li>
   <li>
     <p>Copy the special comment line at the top of the stylesheet file (i.e., <code>//
 stylesheet: additional_styles/posts/example-with-styled-images-2025-08-28</code>) and
-paste it into the post's YAML front matter as the <code>stylesheet:</code> property.</p>
+paste it into the post’s YAML front matter as the <code>stylesheet:</code> property.</p>
 
 <div class="highlight"><pre class="highlight plaintext"><code>   ---
    title: Example with styled images
@@ -232,7 +232,7 @@ paste it into the post's YAML front matter as the <code>stylesheet:</code> prope
 post to see the styled images correctly rendered within your post.</p>
 
 <p>Tip: After deleting this example post, run rake find_widows to identify any
-orphaned post assets that you'll remove manually. See <a href="#appendix">Appendix: Cleaning Up</a></p>
+orphaned post assets that you’ll remove manually. See <a href="#appendix">Appendix: Cleaning Up</a></p>
 
 <h1 id="data-flow">How to Use Data-Driven Content in Your Posts</h1>
 
@@ -319,17 +319,17 @@ preserved at</p>
 
 <h2>Step 4: Update the Stylesheet</h2>
 
-<p>Additional stylesheet? We don't need no stinking additional styletheet!</p>
+<p>Additional stylesheet? We don’t need no stinking additional styletheet!</p>
 
 <h2>Step 5: Build and Preview</h2>
 
 <p>Run your build process (e.g., <code>middleman build</code> or equivalent) and preview the post.</p>
 
-<p>Oh look, the internet says Maggie Cheung also was in the movie "2046". Duplicate
+<p>Oh look, the internet says Maggie Cheung also was in the movie “2046”. Duplicate
 that line in the <code>a.yml</code> file put it the Maggie Cheung list of movies too. Run the build.</p>
 
 <p>Tip: After deleting this example post, run rake find_widows to identify any
-orphaned post assets that you'll remove manually. See <a href="#appendix">Appendix: Cleaning Up</a></p>
+orphaned post assets that you’ll remove manually. See <a href="#appendix">Appendix: Cleaning Up</a></p>
 
 <h1 id="appendix">Appendix: Cleaning Up Post Assets with find_widows</h1>
 

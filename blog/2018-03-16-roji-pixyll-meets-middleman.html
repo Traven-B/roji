@@ -60,18 +60,18 @@
   <!-- yield to actual post content here -->
       <p>Roji is a respectful port of the Pixyll theme to the Middleman static site
 generator. The original Liquid templates were replicated and rewritten for
-Middleman's Embedded Ruby (ERB) language. Additional templates for categories
+Middleman’s Embedded Ruby (ERB) language. Additional templates for categories
 and tags were also created, which show how much effort goes into a
 well-designed minimalist theme without adding unnecessary complexity. This was
-a personal learning project, focused on using Middleman's flexibility to create
+a personal learning project, focused on using Middleman’s flexibility to create
 a straightforward blogging workflow. The goal was to honor the original theme
-"crafted with &lt;3" by John Otander.</p>
+“crafted with &lt;3” by John Otander.</p>
 
 <p>Roji uses per-post directories and files to keep images, data, and stylesheets
 organized and self-contained by using naming conventions linking an asset to a
 post.</p>
 
-<p>Images and YAML data files live in parallel directories named after the post's
+<p>Images and YAML data files live in parallel directories named after the post’s
 filename inside images/posts/ and data/posts/. A single additional stylesheet
 for each post is named after the post’s filename and placed in a designated
 stylesheets directory for posts.</p>
@@ -85,7 +85,7 @@ stylesheets, simplifying blogging workflows.</p>
     <p><strong>Data-Driven Content:</strong> Posts use Embedded Ruby (ERB) templates to pull structured data from YAML files and place it within markdown or HTML. A rake task does the necessary setup for post-associated data, including sample data and code.</p>
   </li>
   <li>
-    <p><strong>Page-Specific Styling:</strong> Each post can have a unique stylesheet compiled separately from the main CSS bundle. A rake task creates a correctly named stub <code>.css.scss</code> file. The stub has an SCSS comment to be pasted into the front matter of the associated post as its 'stylesheet:' page data property, and it imports Pixyll's _<code>variables.scss</code> file.</p>
+    <p><strong>Page-Specific Styling:</strong> Each post can have a unique stylesheet compiled separately from the main CSS bundle. A rake task creates a correctly named stub <code>.css.scss</code> file. The stub has an SCSS comment to be pasted into the front matter of the associated post as its ‘stylesheet:’ page data property, and it imports Pixyll’s _<code>variables.scss</code> file.</p>
   </li>
   <li>
     <p><strong>Image Management:</strong> One flexible helper script manages post images by
